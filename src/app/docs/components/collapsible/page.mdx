@@ -1,0 +1,108 @@
+import {
+  Collapsible,
+  CollapsibleTrigger,
+  CollapsibleContent,
+} from "@/components/ui/collapsible";
+import { ComponentPreview, InstallCommand } from "@/components/docs/code-block";
+
+# Collapsible
+
+An interactive component that expands and collapses a section of content.
+
+## Installation
+
+<InstallCommand name="collapsible" />
+
+```tsx
+import {
+  Collapsible,
+  CollapsibleTrigger,
+  CollapsibleContent,
+} from "@/components/ui/collapsible"
+```
+
+## Usage
+
+<ComponentPreview>
+  <Collapsible>
+    <CollapsibleTrigger className="inline-flex items-center justify-center gap-2 font-medium rounded-lg px-4 py-2 bg-surface shadow-neu hover:brightness-105 active:shadow-neu-pressed transition-all">
+      Toggle Content
+    </CollapsibleTrigger>
+    <CollapsibleContent>
+      <div className="mt-4 p-4 rounded-lg bg-surface shadow-neu-inset">
+        <p>This content can be shown or hidden.</p>
+      </div>
+    </CollapsibleContent>
+  </Collapsible>
+</ComponentPreview>
+
+```tsx
+import { useState } from "react"
+
+function CollapsibleDemo() {
+  const [isOpen, setIsOpen] = useState(false)
+
+  return (
+    <Collapsible open={isOpen} onOpenChange={setIsOpen}>
+      <CollapsibleTrigger className="inline-flex items-center justify-center gap-2 font-medium rounded-lg px-4 py-2 bg-surface shadow-neu hover:brightness-105 active:shadow-neu-pressed transition-all">
+        {isOpen ? "Hide" : "Show"} Content
+      </CollapsibleTrigger>
+      <CollapsibleContent>
+        <div className="mt-4 p-4 rounded-lg bg-surface shadow-neu-inset">
+          <p>This content can be shown or hidden.</p>
+        </div>
+      </CollapsibleContent>
+    </Collapsible>
+  )
+}
+```
+
+## Uncontrolled
+
+Use `defaultOpen` for an uncontrolled collapsible.
+
+<ComponentPreview>
+  <Collapsible defaultOpen>
+    <CollapsibleTrigger className="inline-flex items-center justify-center gap-2 font-medium rounded-lg px-4 py-2 bg-surface shadow-neu hover:brightness-105 active:shadow-neu-pressed transition-all">
+      Toggle
+    </CollapsibleTrigger>
+    <CollapsibleContent>
+      <p className="mt-4">This is expanded by default.</p>
+    </CollapsibleContent>
+  </Collapsible>
+</ComponentPreview>
+
+```tsx
+<Collapsible defaultOpen>
+  <CollapsibleTrigger className="inline-flex items-center justify-center gap-2 font-medium rounded-lg px-4 py-2 bg-surface shadow-neu hover:brightness-105 active:shadow-neu-pressed transition-all">
+    Toggle
+  </CollapsibleTrigger>
+  <CollapsibleContent>
+    <p className="mt-4">This is expanded by default.</p>
+  </CollapsibleContent>
+</Collapsible>
+```
+
+## Props
+
+### Collapsible
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| open | `boolean` | - | The controlled open state. |
+| defaultOpen | `boolean` | `false` | The initial open state when uncontrolled. |
+| onOpenChange | `(open: boolean) => void` | - | Callback when the open state changes. |
+| disabled | `boolean` | `false` | Whether the collapsible is disabled. |
+
+### CollapsibleTrigger
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| asChild | `boolean` | `false` | Merge props onto the child element. |
+| className | `string` | - | Additional CSS classes. |
+
+### CollapsibleContent
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| className | `string` | - | Additional CSS classes. |

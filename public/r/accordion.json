@@ -1,0 +1,16 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "accordion",
+  "title": "Accordion",
+  "description": "A neumorphic accordion component with expandable sections.",
+  "dependencies": ["@base-ui/react", "@phosphor-icons/react"],
+  "registryDependencies": ["utils"],
+  "files": [
+    {
+      "path": "src/components/ui/accordion.tsx",
+      "content": "\"use client\";\n\nimport { Accordion as BaseAccordion } from \"@base-ui/react/accordion\";\nimport { CaretDown } from \"@phosphor-icons/react/dist/ssr\";\nimport * as React from \"react\";\n\nimport { cn } from \"@/lib/utils\";\n\nconst Accordion = BaseAccordion.Root;\n\nconst AccordionItem = React.forwardRef<\n  HTMLDivElement,\n  React.ComponentPropsWithoutRef<typeof BaseAccordion.Item>\n>(({ className, ...props }, ref) => (\n  <BaseAccordion.Item\n    ref={ref}\n    className={cn(\n      \"rounded-lg bg-surface text-foreground shadow-neu-sm transition-all duration-300 ease-in-out data-[open]:shadow-neu-inset-sm data-[open]:bg-surface/50\",\n      className,\n    )}\n    {...props}\n  />\n));\nAccordionItem.displayName = \"AccordionItem\";\n\nconst AccordionHeader = React.forwardRef<\n  HTMLHeadingElement,\n  React.ComponentPropsWithoutRef<typeof BaseAccordion.Header>\n>(({ className, ...props }, ref) => (\n  <BaseAccordion.Header\n    ref={ref}\n    className={cn(\"flex\", className)}\n    {...props}\n  />\n));\nAccordionHeader.displayName = \"AccordionHeader\";\n\nconst AccordionTrigger = React.forwardRef<\n  HTMLButtonElement,\n  React.ComponentPropsWithoutRef<typeof BaseAccordion.Trigger>\n>(({ className, children, ...props }, ref) => (\n  <BaseAccordion.Trigger\n    ref={ref}\n    className={cn(\n      \"flex flex-1 items-center justify-between px-6 py-4 font-medium transition-all text-foreground hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-lg [&[data-open]>svg]:rotate-180\",\n      className,\n    )}\n    {...props}\n  >\n    {children}\n    <CaretDown\n      size={16}\n      weight=\"bold\"\n      className=\"shrink-0 transition-transform duration-300 text-muted-foreground\"\n    />\n  </BaseAccordion.Trigger>\n));\nAccordionTrigger.displayName = \"AccordionTrigger\";\n\nconst AccordionPanel = React.forwardRef<\n  HTMLDivElement,\n  React.ComponentPropsWithoutRef<typeof BaseAccordion.Panel>\n>(({ className, children, ...props }, ref) => (\n  <BaseAccordion.Panel\n    ref={ref}\n    className={cn(\n      \"h-[var(--accordion-panel-height)] overflow-hidden text-sm transition-[height] duration-300 ease-out data-[ending-style]:h-0 data-[starting-style]:h-0\",\n      className,\n    )}\n    {...props}\n  >\n    <div className=\"px-6 pb-4 pt-0 text-foreground/80\">{children}</div>\n  </BaseAccordion.Panel>\n));\nAccordionPanel.displayName = \"AccordionPanel\";\n\nexport {\n  Accordion,\n  AccordionItem,\n  AccordionHeader,\n  AccordionTrigger,\n  AccordionPanel,\n};\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

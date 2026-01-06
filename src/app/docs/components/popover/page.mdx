@@ -1,0 +1,103 @@
+import { Popover, PopoverTrigger, PopoverContent } from "@/components/ui/popover";
+import { ComponentPreview, InstallCommand } from "@/components/docs/code-block";
+
+# Popover
+
+A floating panel that displays information or interactive content, triggered by a button.
+
+## Installation
+
+<InstallCommand name="popover" />
+
+```tsx
+import {
+  Popover,
+  PopoverTrigger,
+  PopoverContent,
+  PopoverArrow,
+  PopoverClose,
+} from "@/components/ui/popover";
+```
+
+## Usage
+
+<ComponentPreview>
+  <Popover>
+    <PopoverTrigger className="px-4 py-2 bg-surface shadow-neu-sm rounded-md hover:shadow-neu-md transition-shadow">
+      Open Popover
+    </PopoverTrigger>
+    <PopoverContent>
+      <div className="space-y-2">
+        <h4 className="font-medium leading-none">Popover Title</h4>
+        <span className="text-sm text-muted-foreground block">
+          This is a popover with neumorphic styling.
+        </span>
+      </div>
+    </PopoverContent>
+  </Popover>
+</ComponentPreview>
+
+```tsx
+import { Popover, PopoverTrigger, PopoverContent } from "@/components/ui/popover";
+
+export default function PopoverDemo() {
+  return (
+    <Popover>
+      <PopoverTrigger className="px-4 py-2 bg-surface shadow-neu-sm rounded-md hover:shadow-neu-md transition-shadow">
+        Open Popover
+      </PopoverTrigger>
+      <PopoverContent>
+        <div className="space-y-2">
+          <h4 className="font-medium leading-none">Popover Title</h4>
+          <p className="text-sm text-muted-foreground">
+            This is a popover with neumorphic styling.
+          </p>
+        </div>
+      </PopoverContent>
+    </Popover>
+  );
+}
+```
+
+## Side and Align
+
+Control the position of the popover using the `side` and `align` props.
+
+<ComponentPreview>
+  <Popover>
+    <PopoverTrigger className="px-4 py-2 bg-surface shadow-neu-sm rounded-md">
+      Top End
+    </PopoverTrigger>
+    <PopoverContent side="top" align="end">
+      <span>This popover is positioned at the top-end.</span>
+    </PopoverContent>
+  </Popover>
+</ComponentPreview>
+
+```tsx
+import { Popover, PopoverTrigger, PopoverContent } from "@/components/ui/popover";
+
+export default function PopoverPosition() {
+  return (
+    <Popover>
+      <PopoverTrigger className="px-4 py-2 bg-surface shadow-neu-sm rounded-md">
+        Top End
+      </PopoverTrigger>
+      <PopoverContent side="top" align="end">
+        <p>This popover is positioned at the top-end.</p>
+      </PopoverContent>
+    </Popover>
+  );
+}
+```
+
+## Props
+
+### PopoverContent
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| side | `"top" \| "bottom" \| "left" \| "right"` | `"bottom"` | The preferred side of the trigger to render against when open. |
+| sideOffset | `number` | `10` | The distance in pixels from the trigger. |
+| align | `"start" \| "center" \| "end"` | `"center"` | The preferred alignment against the trigger. |
+| className | `string` | - | Additional CSS classes to apply to the content. |

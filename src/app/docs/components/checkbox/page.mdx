@@ -1,0 +1,78 @@
+import Checkbox from "@/components/ui/checkbox";
+import { Field, FieldLabel } from "@/components/ui/field";
+import { ComponentPreview, InstallCommand } from "@/components/docs/code-block";
+
+# Checkbox
+
+A checkbox component with neumorphic styling, built on top of Base UI.
+
+## Installation
+
+<InstallCommand name="checkbox" />
+
+```tsx
+import Checkbox from "@/components/ui/checkbox";
+```
+
+## Usage
+
+<ComponentPreview>
+  <Checkbox />
+</ComponentPreview>
+
+```tsx
+import Checkbox from "@/components/ui/checkbox";
+
+export default function CheckboxDemo() {
+  return <Checkbox />;
+}
+```
+
+## With Label
+
+<ComponentPreview>
+  <Field className="flex items-center gap-2 space-y-0">
+    <Checkbox id="terms" />
+    <FieldLabel htmlFor="terms">Accept terms and conditions</FieldLabel>
+  </Field>
+</ComponentPreview>
+
+```tsx
+import Checkbox from "@/components/ui/checkbox";
+import { Field, FieldLabel } from "@/components/ui/field";
+
+export default function CheckboxWithLabel() {
+  return (
+    <Field className="flex items-center gap-2 space-y-0">
+      <Checkbox id="terms" />
+      <FieldLabel htmlFor="terms">Accept terms and conditions</FieldLabel>
+    </Field>
+  );
+}
+```
+
+## Disabled State
+
+<ComponentPreview>
+  <Checkbox disabled />
+</ComponentPreview>
+
+```tsx
+import Checkbox from "@/components/ui/checkbox";
+
+export default function CheckboxDisabled() {
+  return <Checkbox disabled />;
+}
+```
+
+## Props
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| size | `"sm" \| "md" \| "lg"` | `"md"` | The size of the checkbox. |
+| checked | `boolean` | - | The controlled checked state of the checkbox. |
+| defaultChecked | `boolean` | - | The default checked state when uncontrolled. |
+| onCheckedChange | `(checked: boolean) => void` | - | Event handler called when the checked state changes. |
+| indeterminate | `boolean` | - | Whether the checkbox is in an indeterminate state. |
+| disabled | `boolean` | `false` | Whether the checkbox is disabled. |
+| className | `string` | - | Additional CSS classes to apply to the checkbox. |

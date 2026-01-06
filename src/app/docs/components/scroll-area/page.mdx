@@ -1,0 +1,126 @@
+import {
+  ScrollArea,
+  ScrollAreaViewport,
+  ScrollAreaScrollbar,
+  ScrollAreaThumb,
+} from "@/components/ui/scroll-area";
+import { ComponentPreview, InstallCommand } from "@/components/docs/code-block";
+
+# Scroll Area
+
+A custom scrollable area with stylized scrollbars and neumorphic design.
+
+## Installation
+
+<InstallCommand name="scroll-area" />
+
+```tsx
+import {
+  ScrollArea,
+  ScrollAreaViewport,
+  ScrollAreaScrollbar,
+  ScrollAreaThumb,
+  ScrollAreaCorner,
+} from "@/components/ui/scroll-area";
+```
+
+## Usage
+
+<ComponentPreview>
+  <ScrollArea className="h-48 w-full max-w-md rounded-md border shadow-neu-inset-sm">
+    <ScrollAreaViewport className="p-4">
+      <div className="space-y-4">
+        <h4 className="text-sm font-medium leading-none">Tags</h4>
+        <div className="text-sm">v1.2.0-beta.50</div>
+        <div className="text-sm">v1.2.0-beta.49</div>
+        <div className="text-sm">v1.2.0-beta.48</div>
+        <div className="text-sm">v1.2.0-beta.47</div>
+        <div className="text-sm">v1.2.0-beta.46</div>
+        <div className="text-sm">v1.2.0-beta.45</div>
+        <div className="text-sm">v1.2.0-beta.44</div>
+        <div className="text-sm">v1.2.0-beta.43</div>
+        <div className="text-sm">v1.2.0-beta.42</div>
+        <div className="text-sm">v1.2.0-beta.41</div>
+      </div>
+    </ScrollAreaViewport>
+    <ScrollAreaScrollbar>
+      <ScrollAreaThumb />
+    </ScrollAreaScrollbar>
+  </ScrollArea>
+</ComponentPreview>
+
+```tsx
+import {
+  ScrollArea,
+  ScrollAreaViewport,
+  ScrollAreaScrollbar,
+  ScrollAreaThumb,
+} from "@/components/ui/scroll-area";
+
+export default function ScrollAreaDemo() {
+  return (
+    <ScrollArea className="h-48 w-full rounded-md border shadow-neu-inset-sm p-4">
+      <ScrollAreaViewport className="p-4">
+        <div className="space-y-4">
+          <h4 className="text-sm font-medium leading-none">Tags</h4>
+          {Array.from({ length: 50 }).map((_, i) => (
+            <div key={i} className="text-sm">
+              v1.2.0-beta.{50 - i}
+            </div>
+          ))}
+        </div>
+      </ScrollAreaViewport>
+      <ScrollAreaScrollbar>
+        <ScrollAreaThumb />
+      </ScrollAreaScrollbar>
+    </ScrollArea>
+  );
+}
+```
+
+## Horizontal Scroll
+
+Enable horizontal scrolling by providing the `orientation` prop to `ScrollAreaScrollbar`.
+
+```tsx
+import {
+  ScrollArea,
+  ScrollAreaViewport,
+  ScrollAreaScrollbar,
+  ScrollAreaThumb,
+} from "@/components/ui/scroll-area";
+
+export default function ScrollAreaHorizontal() {
+  return (
+    <ScrollArea className="w-64 whitespace-nowrap rounded-md border shadow-neu-inset-sm">
+      <ScrollAreaViewport className="p-4">
+        <div className="flex w-max space-x-4">
+          {Array.from({ length: 20 }).map((_, i) => (
+            <div key={i} className="shrink-0 rounded-md bg-surface p-4 shadow-neu-sm">
+              Item {i + 1}
+            </div>
+          ))}
+        </div>
+      </ScrollAreaViewport>
+      <ScrollAreaScrollbar orientation="horizontal">
+        <ScrollAreaThumb />
+      </ScrollAreaScrollbar>
+    </ScrollArea>
+  );
+}
+```
+
+## Props
+
+### ScrollAreaScrollbar
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| orientation | `"vertical" \| "horizontal"` | `"vertical"` | The orientation of the scrollbar. |
+| className | `string` | - | Additional CSS classes to apply to the scrollbar. |
+
+### ScrollAreaThumb
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| className | `string` | - | Additional CSS classes to apply to the thumb. |

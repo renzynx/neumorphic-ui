@@ -1,0 +1,209 @@
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
+import { ComponentPreview, InstallCommand } from "@/components/docs/code-block";
+
+# Tooltip
+
+A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.
+
+## Installation
+
+<InstallCommand name="tooltip" />
+
+```tsx
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
+```
+
+## Usage
+
+<ComponentPreview>
+  <TooltipProvider>
+    <Tooltip>
+      <TooltipTrigger>Hover me</TooltipTrigger>
+      <TooltipContent>
+        <p>Add to library</p>
+      </TooltipContent>
+    </Tooltip>
+  </TooltipProvider>
+</ComponentPreview>
+
+```tsx
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
+
+export default function TooltipDemo() {
+  return (
+    <TooltipProvider>
+      <Tooltip>
+        <TooltipTrigger>Hover me</TooltipTrigger>
+        <TooltipContent>
+          <p>Add to library</p>
+        </TooltipContent>
+      </Tooltip>
+    </TooltipProvider>
+  );
+}
+```
+
+## Examples
+
+### Sides
+
+The tooltip can be positioned on different sides of the trigger using the `side` prop.
+
+<ComponentPreview>
+  <TooltipProvider>
+    <div className="flex gap-2">
+      <Tooltip>
+        <TooltipTrigger className="inline-flex items-center justify-center gap-2 font-medium select-none transition-all duration-200 ease-in-out active:translate-y-0.5 outline-none focus-visible:outline-2 focus-visible:outline-primary focus-visible:-outline-offset-2 data-disabled:opacity-50 data-disabled:shadow-none data-disabled:cursor-not-allowed data-disabled:translate-y-0 bg-surface text-foreground/80 shadow-neu border border-foreground/10 hover:brightness-105 active:shadow-neu-pressed h-11 px-6 text-base rounded-xl">Top</TooltipTrigger>
+        <TooltipContent side="top">
+          <p>Tooltip on top</p>
+        </TooltipContent>
+      </Tooltip>
+      <Tooltip>
+        <TooltipTrigger className="inline-flex items-center justify-center gap-2 font-medium select-none transition-all duration-200 ease-in-out active:translate-y-0.5 outline-none focus-visible:outline-2 focus-visible:outline-primary focus-visible:-outline-offset-2 data-disabled:opacity-50 data-disabled:shadow-none data-disabled:cursor-not-allowed data-disabled:translate-y-0 bg-surface text-foreground/80 shadow-neu border border-foreground/10 hover:brightness-105 active:shadow-neu-pressed h-11 px-6 text-base rounded-xl">Right</TooltipTrigger>
+        <TooltipContent side="right">
+          <p>Tooltip on right</p>
+        </TooltipContent>
+      </Tooltip>
+      <Tooltip>
+        <TooltipTrigger className="inline-flex items-center justify-center gap-2 font-medium select-none transition-all duration-200 ease-in-out active:translate-y-0.5 outline-none focus-visible:outline-2 focus-visible:outline-primary focus-visible:-outline-offset-2 data-disabled:opacity-50 data-disabled:shadow-none data-disabled:cursor-not-allowed data-disabled:translate-y-0 bg-surface text-foreground/80 shadow-neu border border-foreground/10 hover:brightness-105 active:shadow-neu-pressed h-11 px-6 text-base rounded-xl">Bottom</TooltipTrigger>
+        <TooltipContent side="bottom">
+          <p>Tooltip on bottom</p>
+        </TooltipContent>
+      </Tooltip>
+      <Tooltip>
+        <TooltipTrigger className="inline-flex items-center justify-center gap-2 font-medium select-none transition-all duration-200 ease-in-out active:translate-y-0.5 outline-none focus-visible:outline-2 focus-visible:outline-primary focus-visible:-outline-offset-2 data-disabled:opacity-50 data-disabled:shadow-none data-disabled:cursor-not-allowed data-disabled:translate-y-0 bg-surface text-foreground/80 shadow-neu border border-foreground/10 hover:brightness-105 active:shadow-neu-pressed h-11 px-6 text-base rounded-xl">Left</TooltipTrigger>
+        <TooltipContent side="left">
+          <p>Tooltip on left</p>
+        </TooltipContent>
+      </Tooltip>
+    </div>
+  </TooltipProvider>
+</ComponentPreview>
+
+```tsx
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
+import { buttonVariants } from "@/components/ui/button";
+
+export default function TooltipSides() {
+  return (
+    <TooltipProvider>
+      <div className="flex gap-2">
+        <Tooltip>
+          <TooltipTrigger className={buttonVariants({ variant: "secondary" })}>
+            Top
+          </TooltipTrigger>
+          <TooltipContent side="top">
+            <p>Tooltip on top</p>
+          </TooltipContent>
+        </Tooltip>
+        <Tooltip>
+          <TooltipTrigger className={buttonVariants({ variant: "secondary" })}>
+            Right
+          </TooltipTrigger>
+          <TooltipContent side="right">
+            <p>Tooltip on right</p>
+          </TooltipContent>
+        </Tooltip>
+        <Tooltip>
+          <TooltipTrigger className={buttonVariants({ variant: "secondary" })}>
+            Bottom
+          </TooltipTrigger>
+          <TooltipContent side="bottom">
+            <p>Tooltip on bottom</p>
+          </TooltipContent>
+        </Tooltip>
+        <Tooltip>
+          <TooltipTrigger className={buttonVariants({ variant: "secondary" })}>
+            Left
+          </TooltipTrigger>
+          <TooltipContent side="left">
+            <p>Tooltip on left</p>
+          </TooltipContent>
+        </Tooltip>
+      </div>
+    </TooltipProvider>
+  );
+}
+```
+
+### Side Offset
+
+The `sideOffset` prop can be used to adjust the distance between the trigger and the content.
+
+<ComponentPreview>
+  <TooltipProvider>
+    <Tooltip>
+      <TooltipTrigger>Hover me</TooltipTrigger>
+      <TooltipContent sideOffset={20}>
+        <p>Custom offset</p>
+      </TooltipContent>
+    </Tooltip>
+  </TooltipProvider>
+</ComponentPreview>
+
+```tsx
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
+
+export default function TooltipOffset() {
+  return (
+    <TooltipProvider>
+      <Tooltip>
+        <TooltipTrigger>Hover me</TooltipTrigger>
+        <TooltipContent sideOffset={20}>
+          <p>Custom offset</p>
+        </TooltipContent>
+      </Tooltip>
+    </TooltipProvider>
+  );
+}
+```
+
+## Props
+
+### TooltipProvider
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| delay | `number` | `200` | The duration from when the mouse enters a trigger until the tooltip opens. |
+| skipDelayDuration | `number` | `300` | How much time a user has to enter another trigger without again waiting for the delay. |
+
+### Tooltip
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| open | `boolean` | - | The open state of the tooltip. |
+| defaultOpen | `boolean` | - | The initial open state. |
+| onOpenChange | `(open: boolean) => void` | - | Callback for when the open state changes. |
+
+### TooltipContent
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| side | `"top" \| "bottom" \| "left" \| "right"` | `"top"` | The preferred side of the anchor to render against when open. |
+| sideOffset | `number` | `10` | The distance in pixels from the anchor. |
+| className | `string` | - | Additional CSS classes to apply to the content. |

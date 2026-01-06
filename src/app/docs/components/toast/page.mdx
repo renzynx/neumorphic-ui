@@ -1,0 +1,214 @@
+import { InstallCommand } from "@/components/docs/code-block";
+
+# Toast
+
+A succinct message that is displayed temporarily, providing feedback about an operation.
+
+## Installation
+
+<InstallCommand name="toast" />
+
+```tsx
+import {
+  ToastProvider,
+  ToastViewport,
+  ToastPortal,
+  ToastRoot,
+  ToastTitle,
+  ToastDescription,
+  ToastClose,
+  ToastAction,
+  useToast,
+} from "@/components/ui/toast";
+```
+
+## Usage
+
+To use the toast component, wrap your application in a `ToastProvider` and include a `ToastViewport` within a `ToastPortal`. Then, use the `useToast` hook to trigger notifications.
+
+```tsx
+import {
+  ToastProvider,
+  ToastViewport,
+  ToastPortal,
+  ToastRoot,
+  ToastTitle,
+  ToastDescription,
+  ToastClose,
+  useToast,
+} from "@/components/ui/toast";
+
+export default function ToastDemo() {
+  return (
+    <ToastProvider>
+      <ToastTrigger />
+      <ToastPortal>
+        <ToastViewport />
+      </ToastPortal>
+    </ToastProvider>
+  );
+}
+
+function ToastTrigger() {
+  const toast = useToast();
+
+  return (
+    <button
+      onClick={() =>
+        toast.show(
+          <ToastRoot>
+            <ToastTitle>Notification</ToastTitle>
+            <ToastDescription>Your changes have been saved.</ToastDescription>
+            <ToastClose />
+          </ToastRoot>
+        )
+      }
+    >
+      Show Toast
+    </button>
+  );
+}
+```
+
+## Variants
+
+Toasts come with several variants to convey different statuses. The component automatically renders an appropriate icon for each variant.
+
+```tsx
+import { ToastRoot, ToastTitle, ToastDescription, useToast } from "@/components/ui/toast";
+
+function ToastVariants() {
+  const toast = useToast();
+
+  return (
+    <div className="flex gap-4">
+      <button onClick={() => toast.show(
+        <ToastRoot variant="default">
+          <ToastTitle>Default</ToastTitle>
+          <ToastDescription>A standard notification message.</ToastDescription>
+        </ToastRoot>
+      )}>Default</button>
+      
+      <button onClick={() => toast.show(
+        <ToastRoot variant="success">
+          <ToastTitle>Success</ToastTitle>
+          <ToastDescription>Action completed successfully.</ToastDescription>
+        </ToastRoot>
+      )}>Success</button>
+      
+      <button onClick={() => toast.show(
+        <ToastRoot variant="error">
+          <ToastTitle>Error</ToastTitle>
+          <ToastDescription>Something went wrong.</ToastDescription>
+        </ToastRoot>
+      )}>Error</button>
+      
+      <button onClick={() => toast.show(
+        <ToastRoot variant="warning">
+          <ToastTitle>Warning</ToastTitle>
+          <ToastDescription>Please check your settings.</ToastDescription>
+        </ToastRoot>
+      )}>Warning</button>
+      
+      <button onClick={() => toast.show(
+        <ToastRoot variant="info">
+          <ToastTitle>Info</ToastTitle>
+          <ToastDescription>Here is some information.</ToastDescription>
+        </ToastRoot>
+      )}>Info</button>
+    </div>
+  );
+}
+```
+
+## Examples
+
+### With Action
+
+You can add an interactive action to the toast using the `ToastAction` component.
+
+```tsx
+import {
+  ToastRoot,
+  ToastTitle,
+  ToastDescription,
+  ToastAction,
+  ToastClose,
+  useToast,
+} from "@/components/ui/toast";
+
+function ToastWithAction() {
+  const toast = useToast();
+
+  return (
+    <button
+      onClick={() =>
+        toast.show(
+          <ToastRoot>
+            <div className="flex flex-col gap-2">
+              <ToastTitle>Server Error</ToastTitle>
+              <ToastDescription>Failed to connect to the server.</ToastDescription>
+              <ToastAction onClick={() => console.log("Retrying...")}>
+                Retry
+              </ToastAction>
+            </div>
+            <ToastClose />
+          </ToastRoot>
+        )
+      }
+    >
+      Show Action Toast
+    </button>
+  );
+}
+```
+
+## Props
+
+### ToastRoot
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| variant | `"default" | "success" | "error" | "warning" \| "info"` | `"default"` | The visual style of the toast. |
+| children | `React.ReactNode` | - | The content of the toast. |
+| className | `string` | - | Additional CSS classes for the toast root. |
+
+### ToastProvider
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| children | `React.ReactNode` | - | The application components that can trigger toasts. |
+
+### ToastViewport
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| className | `string` | - | Additional CSS classes for the toast viewport. |
+
+### ToastTitle
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| children | `React.ReactNode` | - | The title text for the toast. |
+| className | `string` | - | Additional CSS classes for the title. |
+
+### ToastDescription
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| children | `React.ReactNode` | - | The description text for the toast. |
+| className | `string` | - | Additional CSS classes for the description. |
+
+### ToastClose
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| className | `string` | - | Additional CSS classes for the close button. |
+
+### ToastAction
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| children | `React.ReactNode` | - | The content of the action button. |
+| onClick | `() => void` | - | Function called when the action button is clicked. |
+| className | `string` | - | Additional CSS classes for the action button. |

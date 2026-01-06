@@ -1,0 +1,16 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "tooltip",
+  "title": "Tooltip",
+  "description": "A neumorphic tooltip component.",
+  "dependencies": ["@base-ui/react"],
+  "registryDependencies": ["utils"],
+  "files": [
+    {
+      "path": "src/components/ui/tooltip.tsx",
+      "content": "\"use client\";\n\nimport { Tooltip as BaseTooltip } from \"@base-ui/react/tooltip\";\nimport type { ComponentProps } from \"react\";\nimport { cn } from \"@/lib/utils\";\n\nfunction TooltipProvider(props: ComponentProps<typeof BaseTooltip.Provider>) {\n  return <BaseTooltip.Provider delay={200} {...props} />;\n}\n\nconst Tooltip = BaseTooltip.Root;\n\nconst TooltipTrigger = BaseTooltip.Trigger;\n\ntype TooltipContentProps = ComponentProps<typeof BaseTooltip.Popup> & {\n  sideOffset?: number;\n  side?: \"top\" | \"bottom\" | \"left\" | \"right\";\n};\n\nfunction TooltipContent({\n  className,\n  sideOffset = 10,\n  side = \"top\",\n  children,\n  ...props\n}: TooltipContentProps) {\n  return (\n    <BaseTooltip.Portal>\n      <BaseTooltip.Positioner sideOffset={sideOffset} side={side}>\n        <BaseTooltip.Popup\n          className={cn(\n            \"z-50 rounded-lg bg-surface px-3 py-1.5 text-sm shadow-neu-sm\",\n            \"data-[instant]:duration-0\",\n            \"data-[starting-style]:opacity-0 data-[starting-style]:scale-95\",\n            \"data-[ending-style]:opacity-0 data-[ending-style]:scale-95\",\n            \"transition-all duration-150\",\n            className,\n          )}\n          {...props}\n        >\n          {children}\n          <BaseTooltip.Arrow\n            className={cn(\n              \"flex\",\n              \"data-[side=top]:bottom-[-6px]\",\n              \"data-[side=bottom]:top-[-6px] data-[side=bottom]:rotate-180\",\n              \"data-[side=left]:right-[-9px] data-[side=left]:-rotate-90\",\n              \"data-[side=right]:left-[-9px] data-[side=right]:rotate-90\",\n            )}\n          >\n            <svg\n              width=\"12\"\n              height=\"6\"\n              viewBox=\"0 0 12 6\"\n              aria-hidden=\"true\"\n              className=\"fill-surface\"\n            >\n              <path d=\"M0 0L6 6L12 0H0Z\" />\n            </svg>\n          </BaseTooltip.Arrow>\n        </BaseTooltip.Popup>\n      </BaseTooltip.Positioner>\n    </BaseTooltip.Portal>\n  );\n}\n\nexport { TooltipProvider, Tooltip, TooltipTrigger, TooltipContent };\nexport type { TooltipContentProps };\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

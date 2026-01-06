@@ -1,36 +1,91 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# @renzynx/neumorphic-ui
 
-## Getting Started
+A soft, tactile component library for React.
 
-First, run the development server:
+[![npm version](https://img.shields.io/npm/v/@renzynx/neumorphic-ui?color=blue)](https://www.npmjs.com/package/@renzynx/neumorphic-ui)
+[![license](https://img.shields.io/npm/l/@renzynx/neumorphic-ui)](https://github.com/renzynx/neumorphic-ui/blob/main/LICENSE)
+[![Next.js](https://img.shields.io/badge/Next.js-16.1.1-black)](https://nextjs.org/)
+[![React](https://img.shields.io/badge/React-19-blue)](https://react.dev/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-v4-38bdf8)](https://tailwindcss.com/)
+
+---
+
+## Features
+
+- **Base UI foundation**: Built on top of Base UI primitives for maximum accessibility and flexibility.
+- **Tailwind CSS v4**: Leveraging the latest Tailwind CSS features including native CSS variables and lightning-fast compilation.
+- **Dark mode**: Fully compatible with dark mode out of the box with optimized neumorphic shadows for dark surfaces.
+- **Accessible**: WAI-ARIA compliant components with keyboard navigation and screen reader support.
+- **shadcn CLI compatible**: Easy to add to your project using the shadcn CLI registry system.
+
+---
+
+## Installation
+
+Add components directly to your project using the shadcn CLI:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npx shadcn@latest add https://neumorphic-ui.vercel.app/r/[component].json
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Quick Start
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+To add a Button component:
 
-## Learn More
+```bash
+npx shadcn@latest add https://neumorphic-ui.vercel.app/r/button.json
+```
 
-To learn more about Next.js, take a look at the following resources:
+Then use it in your React component:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```tsx
+import Button from "@/components/ui/button"
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+export default function App() {
+  return (
+    <Button variant="primary">
+      Click me
+    </Button>
+  )
+}
+```
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Available Components
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+| | | |
+| --- | --- | --- |
+| accordion | alert-dialog | avatar |
+| button | card | checkbox |
+| collapsible | dialog | field |
+| input | menu | number-field |
+| password-input | popover | progress |
+| radio | scroll-area | select |
+| separator | slider | switch |
+| tabs | textarea | theme-toggle |
+| toast | toggle | toggle-group |
+| tooltip | | |
+
+---
+
+## Tech Stack
+
+- **Framework**: React 19, Next.js 16
+- **Styling**: Tailwind CSS v4, class-variance-authority
+- **Primitives**: Base UI
+- **Icons**: Phosphor Icons
+
+---
+
+## License
+
+MIT
+
+---
+
+## Documentation
+
+For full documentation and live examples, visit [neumorphic-ui.vercel.app](https://neumorphic-ui.vercel.app).

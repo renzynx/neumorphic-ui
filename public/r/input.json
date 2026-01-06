@@ -1,0 +1,16 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "input",
+  "title": "Input",
+  "description": "A neumorphic input component with inset shadow styling.",
+  "dependencies": ["@base-ui/react", "class-variance-authority"],
+  "registryDependencies": ["utils"],
+  "files": [
+    {
+      "path": "src/components/ui/input.tsx",
+      "content": "import { Input as BaseInput } from \"@base-ui/react/input\";\nimport { cva, type VariantProps } from \"class-variance-authority\";\nimport type { ComponentProps } from \"react\";\nimport { cn } from \"@/lib/utils\";\n\nconst inputVariants = cva(\n  [\n    \"w-full bg-surface text-foreground placeholder:text-foreground/50 border-none outline-none transition-shadow duration-200\",\n    \"data-[disabled]:opacity-50 data-[disabled]:cursor-not-allowed\",\n  ],\n  {\n    variants: {\n      size: {\n        sm: \"h-8 px-3 text-sm rounded-lg shadow-neu-inset-sm\",\n        md: \"h-10 px-4 text-base rounded-xl shadow-neu-inset\",\n        lg: \"h-12 px-5 text-lg rounded-xl shadow-neu-inset-lg\",\n      },\n      error: {\n        true: \"shadow-focus-destructive\",\n        false: \"focus:shadow-focus-primary\",\n      },\n    },\n    defaultVariants: {\n      size: \"md\",\n      error: false,\n    },\n  },\n);\n\nexport type InputProps = Omit<ComponentProps<typeof BaseInput>, \"size\"> &\n  VariantProps<typeof inputVariants>;\n\nexport default function Input({\n  className,\n  size,\n  error,\n  disabled,\n  ...props\n}: InputProps) {\n  return (\n    <BaseInput\n      disabled={disabled}\n      className={cn(inputVariants({ size, error }), className)}\n      {...props}\n    />\n  );\n}\n\nexport { inputVariants };\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

@@ -1,0 +1,16 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "scroll-area",
+  "title": "Scroll Area",
+  "description": "A neumorphic scroll area with custom styled scrollbars.",
+  "dependencies": ["@base-ui/react"],
+  "registryDependencies": ["utils"],
+  "files": [
+    {
+      "path": "src/components/ui/scroll-area.tsx",
+      "content": "\"use client\";\n\nimport { ScrollArea as ScrollAreaPrimitive } from \"@base-ui/react/scroll-area\";\nimport * as React from \"react\";\n\nimport { cn } from \"@/lib/utils\";\n\nconst ScrollArea = React.forwardRef<\n  React.ComponentRef<typeof ScrollAreaPrimitive.Root>,\n  React.ComponentPropsWithoutRef<typeof ScrollAreaPrimitive.Root>\n>(({ className, ...props }, ref) => (\n  <ScrollAreaPrimitive.Root\n    ref={ref}\n    className={cn(\"relative overflow-hidden\", className)}\n    {...props}\n  />\n));\nScrollArea.displayName = ScrollAreaPrimitive.Root.displayName;\n\nconst ScrollAreaViewport = React.forwardRef<\n  React.ComponentRef<typeof ScrollAreaPrimitive.Viewport>,\n  React.ComponentPropsWithoutRef<typeof ScrollAreaPrimitive.Viewport>\n>(({ className, ...props }, ref) => (\n  <ScrollAreaPrimitive.Viewport\n    ref={ref}\n    className={cn(\"h-full w-full rounded-[inherit] overflow-auto\", className)}\n    {...props}\n  />\n));\nScrollAreaViewport.displayName = ScrollAreaPrimitive.Viewport.displayName;\n\nconst ScrollAreaScrollbar = React.forwardRef<\n  React.ComponentRef<typeof ScrollAreaPrimitive.Scrollbar>,\n  React.ComponentPropsWithoutRef<typeof ScrollAreaPrimitive.Scrollbar>\n>(({ className, orientation = \"vertical\", ...props }, ref) => (\n  <ScrollAreaPrimitive.Scrollbar\n    ref={ref}\n    orientation={orientation}\n    className={cn(\n      \"flex touch-none select-none p-0.5 bg-transparent transition-colors duration-150 hover:bg-surface-shadow/10\",\n      \"data-[orientation=vertical]:w-2.5\",\n      \"data-[orientation=horizontal]:h-2.5 data-[orientation=horizontal]:flex-col\",\n      className,\n    )}\n    {...props}\n  />\n));\nScrollAreaScrollbar.displayName = ScrollAreaPrimitive.Scrollbar.displayName;\n\nconst ScrollAreaThumb = React.forwardRef<\n  React.ComponentRef<typeof ScrollAreaPrimitive.Thumb>,\n  React.ComponentPropsWithoutRef<typeof ScrollAreaPrimitive.Thumb>\n>(({ className, ...props }, ref) => (\n  <ScrollAreaPrimitive.Thumb\n    ref={ref}\n    className={cn(\n      \"relative flex-1 rounded-full bg-muted-foreground/30 hover:bg-muted-foreground/50\",\n      className,\n    )}\n    {...props}\n  />\n));\nScrollAreaThumb.displayName = ScrollAreaPrimitive.Thumb.displayName;\n\nconst ScrollAreaCorner = React.forwardRef<\n  React.ComponentRef<typeof ScrollAreaPrimitive.Corner>,\n  React.ComponentPropsWithoutRef<typeof ScrollAreaPrimitive.Corner>\n>(({ className, ...props }, ref) => (\n  <ScrollAreaPrimitive.Corner\n    ref={ref}\n    className={cn(\"bg-transparent\", className)}\n    {...props}\n  />\n));\nScrollAreaCorner.displayName = ScrollAreaPrimitive.Corner.displayName;\n\nexport {\n  ScrollArea,\n  ScrollAreaViewport,\n  ScrollAreaScrollbar,\n  ScrollAreaThumb,\n  ScrollAreaCorner,\n};\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

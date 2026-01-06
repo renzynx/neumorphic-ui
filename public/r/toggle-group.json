@@ -1,0 +1,16 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "toggle-group",
+  "title": "Toggle Group",
+  "description": "A neumorphic toggle group with animated selection indicator.",
+  "dependencies": ["@base-ui/react", "class-variance-authority"],
+  "registryDependencies": ["utils"],
+  "files": [
+    {
+      "path": "src/components/ui/toggle-group.tsx",
+      "content": "\"use client\";\n\nimport { Toggle as BaseToggle } from \"@base-ui/react/toggle\";\nimport { ToggleGroup as BaseToggleGroup } from \"@base-ui/react/toggle-group\";\nimport { cva, type VariantProps } from \"class-variance-authority\";\nimport { type ComponentProps, createContext, useContext } from \"react\";\nimport { cn } from \"@/lib/utils\";\n\nconst toggleGroupItemVariants = cva(\n  [\n    \"inline-flex items-center justify-center whitespace-nowrap bg-transparent font-medium text-foreground/70 rounded-lg select-none\",\n    \"transition-colors duration-200 ease-out\",\n    \"hover:text-foreground hover:bg-surface-shadow/10\",\n    \"focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary focus-visible:-outline-offset-1\",\n    \"data-[disabled]:cursor-not-allowed data-[disabled]:opacity-50\",\n    \"data-[pressed]:bg-surface-shadow/20 data-[pressed]:text-foreground data-[pressed]:shadow-neu-inset-xs\",\n  ],\n  {\n    variants: {\n      size: {\n        sm: \"h-7 min-w-7 px-2.5 text-sm\",\n        md: \"h-9 min-w-9 px-3 text-base\",\n        lg: \"h-11 min-w-11 px-4 text-lg\",\n      },\n    },\n    defaultVariants: {\n      size: \"md\",\n    },\n  },\n);\n\ntype ToggleGroupSize = \"sm\" | \"md\" | \"lg\";\n\nconst ToggleGroupContext = createContext<{ size: ToggleGroupSize }>({\n  size: \"md\",\n});\n\nexport type ToggleGroupProps = ComponentProps<typeof BaseToggleGroup> &\n  VariantProps<typeof toggleGroupItemVariants>;\n\nexport type ToggleGroupItemProps = ComponentProps<typeof BaseToggle>;\n\nexport function ToggleGroup({\n  className,\n  size = \"md\",\n  children,\n  ...props\n}: ToggleGroupProps) {\n  return (\n    <ToggleGroupContext.Provider value={{ size: size ?? \"md\" }}>\n      <BaseToggleGroup\n        className={cn(\n          \"inline-flex gap-1 rounded-xl bg-surface p-1 shadow-neu-sm\",\n          className,\n        )}\n        {...props}\n      >\n        {children}\n      </BaseToggleGroup>\n    </ToggleGroupContext.Provider>\n  );\n}\n\nexport function ToggleGroupItem({\n  className,\n  children,\n  ...props\n}: ToggleGroupItemProps) {\n  const { size } = useContext(ToggleGroupContext);\n\n  return (\n    <BaseToggle\n      className={cn(toggleGroupItemVariants({ size }), className)}\n      {...props}\n    >\n      {children}\n    </BaseToggle>\n  );\n}\n\nexport { toggleGroupItemVariants };\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

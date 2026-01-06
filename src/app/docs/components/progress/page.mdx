@@ -1,0 +1,80 @@
+import Progress from "@/components/ui/progress";
+import { ComponentPreview, InstallCommand } from "@/components/docs/code-block";
+
+# Progress
+
+A visual indicator of a process's completion level with neumorphic styling.
+
+## Installation
+
+<InstallCommand name="progress" />
+
+```tsx
+import Progress from "@/components/ui/progress";
+```
+
+## Usage
+
+<ComponentPreview>
+  <Progress value={60} showValue className="w-full max-w-md" />
+</ComponentPreview>
+
+```tsx
+import Progress from "@/components/ui/progress";
+
+export default function ProgressDemo() {
+  return <Progress value={60} showValue />;
+}
+```
+
+## Sizes
+
+The progress bar is available in different sizes.
+
+<ComponentPreview>
+  <div className="flex flex-col gap-4 w-full max-w-md">
+    <Progress value={30} size="sm" />
+    <Progress value={50} size="md" />
+    <Progress value={70} size="lg" />
+  </div>
+</ComponentPreview>
+
+```tsx
+import Progress from "@/components/ui/progress";
+
+export default function ProgressSizes() {
+  return (
+    <div className="flex flex-col gap-4">
+      <Progress value={30} size="sm" />
+      <Progress value={50} size="md" />
+      <Progress value={70} size="lg" />
+    </div>
+  );
+}
+```
+
+## Custom Range
+
+You can define a custom maximum value using the `max` prop.
+
+<ComponentPreview>
+  <Progress value={150} max={200} showValue className="w-full max-w-md" />
+</ComponentPreview>
+
+```tsx
+import Progress from "@/components/ui/progress";
+
+export default function ProgressMax() {
+  return <Progress value={150} max={200} showValue />;
+}
+```
+
+## Props
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| value | `number` | - | The current value of the progress bar. |
+| max | `number` | `100` | The maximum value of the progress bar. |
+| size | `"sm" \| "md" \| "lg"` | `"md"` | The size of the progress bar. |
+| showValue | `boolean` | `false` | Whether to display the percentage value. |
+| className | `string` | - | Additional CSS classes to apply to the container. |

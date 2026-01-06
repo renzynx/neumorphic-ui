@@ -1,0 +1,86 @@
+import { Field, FieldLabel, FieldDescription, FieldError } from "@/components/ui/field";
+import Input from "@/components/ui/input";
+import { ComponentPreview, InstallCommand } from "@/components/docs/code-block";
+
+# Field
+
+A suite of components for building accessible form fields with labels, descriptions, and error states.
+
+## Installation
+
+<InstallCommand name="field" />
+
+```tsx
+import { Field, FieldLabel, FieldDescription, FieldError } from "@/components/ui/field";
+```
+
+## Usage
+
+<ComponentPreview>
+  <Field className="w-full max-w-md">
+    <FieldLabel>Username</FieldLabel>
+    <Input placeholder="Enter your username" />
+    <FieldDescription>This is your public display name.</FieldDescription>
+  </Field>
+</ComponentPreview>
+
+```tsx
+import { Field, FieldLabel, FieldDescription, FieldError } from "@/components/ui/field";
+import { Input } from "@/components/ui/input";
+
+export default function FieldDemo() {
+  return (
+    <Field>
+      <FieldLabel>Username</FieldLabel>
+      <Input placeholder="Enter your username" />
+      <FieldDescription>This is your public display name.</FieldDescription>
+      <FieldError>Username is already taken.</FieldError>
+    </Field>
+  );
+}
+```
+
+## With Error
+
+<ComponentPreview>
+  <Field className="w-full max-w-md">
+    <FieldLabel>Username</FieldLabel>
+    <Input placeholder="Enter your username" error />
+    <FieldError>Username is already taken.</FieldError>
+  </Field>
+</ComponentPreview>
+
+## Props
+
+### Field
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| children | `React.ReactNode` | - | The content of the field. |
+| className | `string` | - | Additional CSS classes. |
+
+### FieldLabel
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| children | `React.ReactNode` | - | The label text. |
+| className | `string` | - | Additional CSS classes. |
+
+### FieldControl
+
+> **Note**: `FieldControl` is used with the `render` prop pattern for custom inputs. For simple cases, you can place the `Input` directly inside `Field`.
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| render | `(props) => React.ReactNode` | - | Render function for custom input. |
+| className | `string` | - | Additional CSS classes. |
+
+### FieldDescription
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| children | `React.ReactNode` | - | The description text. |
+| className | `string` | - | Additional CSS classes. |
+
+### FieldError
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| children | `React.ReactNode` | - | The error message text. |
+| className | `string` | - | Additional CSS classes. |

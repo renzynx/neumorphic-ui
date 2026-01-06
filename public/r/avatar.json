@@ -1,0 +1,16 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "avatar",
+  "title": "Avatar",
+  "description": "A neumorphic avatar component with image and fallback support.",
+  "dependencies": ["@base-ui/react", "class-variance-authority"],
+  "registryDependencies": ["utils"],
+  "files": [
+    {
+      "path": "src/components/ui/avatar.tsx",
+      "content": "\"use client\";\n\nimport { Avatar as BaseAvatar } from \"@base-ui/react/avatar\";\nimport { cva, type VariantProps } from \"class-variance-authority\";\nimport * as React from \"react\";\n\nimport { cn } from \"@/lib/utils\";\n\nconst avatarVariants = cva(\n  \"relative flex shrink-0 overflow-hidden rounded-full bg-surface shadow-neu-sm\",\n  {\n    variants: {\n      size: {\n        sm: \"h-8 w-8\",\n        md: \"h-10 w-10\",\n        lg: \"h-12 w-12\",\n        xl: \"h-16 w-16\",\n      },\n    },\n    defaultVariants: {\n      size: \"md\",\n    },\n  },\n);\n\nexport interface AvatarProps\n  extends React.ComponentPropsWithoutRef<typeof BaseAvatar.Root>,\n    VariantProps<typeof avatarVariants> {}\n\nconst Avatar = React.forwardRef<\n  React.ComponentRef<typeof BaseAvatar.Root>,\n  AvatarProps\n>(({ className, size, ...props }, ref) => (\n  <BaseAvatar.Root\n    ref={ref}\n    className={cn(avatarVariants({ size }), className)}\n    {...props}\n  />\n));\nAvatar.displayName = \"Avatar\";\n\nconst AvatarImage = React.forwardRef<\n  React.ComponentRef<typeof BaseAvatar.Image>,\n  React.ComponentPropsWithoutRef<typeof BaseAvatar.Image>\n>(({ className, ...props }, ref) => (\n  <BaseAvatar.Image\n    ref={ref}\n    className={cn(\"aspect-square h-full w-full object-cover\", className)}\n    {...props}\n  />\n));\nAvatarImage.displayName = \"AvatarImage\";\n\nconst AvatarFallback = React.forwardRef<\n  React.ComponentRef<typeof BaseAvatar.Fallback>,\n  React.ComponentPropsWithoutRef<typeof BaseAvatar.Fallback>\n>(({ className, ...props }, ref) => (\n  <BaseAvatar.Fallback\n    ref={ref}\n    className={cn(\n      \"flex h-full w-full items-center justify-center bg-muted text-muted-foreground\",\n      className,\n    )}\n    {...props}\n  />\n));\nAvatarFallback.displayName = \"AvatarFallback\";\n\nexport { Avatar, AvatarImage, AvatarFallback, avatarVariants };\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

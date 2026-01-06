@@ -1,0 +1,217 @@
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import { ComponentPreview, InstallCommand } from "@/components/docs/code-block";
+
+# Select
+
+A neumorphic select component that displays a list of options for the user to pick from, built on top of Base UI.
+
+## Installation
+
+<InstallCommand name="select" />
+
+```tsx
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+```
+
+## Usage
+
+<ComponentPreview>
+  <Select defaultValue="apple" items={[
+    { value: "apple", label: "Apple" },
+    { value: "banana", label: "Banana" },
+    { value: "blueberry", label: "Blueberry" },
+    { value: "grapes", label: "Grapes" },
+    { value: "pineapple", label: "Pineapple" },
+  ]}>
+    <SelectTrigger className="w-[180px]">
+      <SelectValue placeholder="Select a fruit" />
+    </SelectTrigger>
+    <SelectContent>
+      <SelectItem value="apple">Apple</SelectItem>
+      <SelectItem value="banana">Banana</SelectItem>
+      <SelectItem value="blueberry">Blueberry</SelectItem>
+      <SelectItem value="grapes">Grapes</SelectItem>
+      <SelectItem value="pineapple">Pineapple</SelectItem>
+    </SelectContent>
+  </Select>
+</ComponentPreview>
+
+```tsx
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+
+const fruits = [
+  { value: "apple", label: "Apple" },
+  { value: "banana", label: "Banana" },
+  { value: "blueberry", label: "Blueberry" },
+  { value: "grapes", label: "Grapes" },
+  { value: "pineapple", label: "Pineapple" },
+];
+
+export default function SelectDemo() {
+  return (
+    <Select defaultValue="apple" items={fruits}>
+      <SelectTrigger className="w-[180px]">
+        <SelectValue placeholder="Select a fruit" />
+      </SelectTrigger>
+      <SelectContent>
+        {fruits.map((fruit) => (
+          <SelectItem key={fruit.value} value={fruit.value}>
+            {fruit.label}
+          </SelectItem>
+        ))}
+      </SelectContent>
+    </Select>
+  );
+}
+```
+
+## Examples
+
+### Sizes
+
+The select component is available in three sizes: `sm`, `md`, and `lg`.
+
+<ComponentPreview>
+  <div className="flex flex-col gap-4">
+    <Select size="sm" items={[{ value: "1", label: "Option 1" }, { value: "2", label: "Option 2" }]}>
+      <SelectTrigger className="w-[180px]">
+        <SelectValue placeholder="Small size" />
+      </SelectTrigger>
+      <SelectContent>
+        <SelectItem value="1">Option 1</SelectItem>
+        <SelectItem value="2">Option 2</SelectItem>
+      </SelectContent>
+    </Select>
+    <Select size="md" items={[{ value: "1", label: "Option 1" }, { value: "2", label: "Option 2" }]}>
+      <SelectTrigger className="w-[180px]">
+        <SelectValue placeholder="Medium size" />
+      </SelectTrigger>
+      <SelectContent>
+        <SelectItem value="1">Option 1</SelectItem>
+        <SelectItem value="2">Option 2</SelectItem>
+      </SelectContent>
+    </Select>
+    <Select size="lg" items={[{ value: "1", label: "Option 1" }, { value: "2", label: "Option 2" }]}>
+      <SelectTrigger className="w-[180px]">
+        <SelectValue placeholder="Large size" />
+      </SelectTrigger>
+      <SelectContent>
+        <SelectItem value="1">Option 1</SelectItem>
+        <SelectItem value="2">Option 2</SelectItem>
+      </SelectContent>
+    </Select>
+  </div>
+</ComponentPreview>
+
+```tsx
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+
+const options = [
+  { value: "1", label: "Option 1" },
+  { value: "2", label: "Option 2" },
+];
+
+export default function SelectSizes() {
+  return (
+    <div className="flex flex-col gap-4">
+      <Select size="sm" items={options}>
+        <SelectTrigger className="w-[180px]">
+          <SelectValue placeholder="Small size" />
+        </SelectTrigger>
+        <SelectContent>
+          {options.map((opt) => (
+            <SelectItem key={opt.value} value={opt.value}>
+              {opt.label}
+            </SelectItem>
+          ))}
+        </SelectContent>
+      </Select>
+
+      <Select size="md" items={options}>
+        <SelectTrigger className="w-[180px]">
+          <SelectValue placeholder="Medium size" />
+        </SelectTrigger>
+        <SelectContent>
+          {options.map((opt) => (
+            <SelectItem key={opt.value} value={opt.value}>
+              {opt.label}
+            </SelectItem>
+          ))}
+        </SelectContent>
+      </Select>
+
+      <Select size="lg" items={options}>
+        <SelectTrigger className="w-[180px]">
+          <SelectValue placeholder="Large size" />
+        </SelectTrigger>
+        <SelectContent>
+          {options.map((opt) => (
+            <SelectItem key={opt.value} value={opt.value}>
+              {opt.label}
+            </SelectItem>
+          ))}
+        </SelectContent>
+      </Select>
+    </div>
+  );
+}
+```
+
+## Props
+
+### Select
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| size | `"sm" \| "md" \| "lg"` | `"md"` | The size of the select trigger. |
+| items | `{ value: string; label: string }[]` | - | Array of items for value-to-label mapping. Required for displaying labels in the trigger. |
+| defaultValue | `string` | - | The default value of the select. |
+| value | `string` | - | The controlled value of the select. |
+| onValueChange | `(value: string) => void` | - | Event handler called when the value changes. |
+| open | `boolean` | - | The controlled open state of the select. |
+| onOpenChange | `(open: boolean) => void` | - | Event handler called when the open state changes. |
+| disabled | `boolean` | `false` | Whether the select is disabled. |
+
+### SelectTrigger
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| className | `string` | - | Additional CSS classes to apply to the trigger. |
+
+### SelectContent
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| className | `string` | - | Additional CSS classes to apply to the content. |
+
+### SelectItem
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| value | `string` | - | The value of the item. |
+| disabled | `boolean` | `false` | Whether the item is disabled. |
+| className | `string` | - | Additional CSS classes to apply to the item. |

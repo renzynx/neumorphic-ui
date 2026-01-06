@@ -1,0 +1,156 @@
+import {
+  AlertDialog,
+  AlertDialogTrigger,
+  AlertDialogContent,
+  AlertDialogHeader,
+  AlertDialogFooter,
+  AlertDialogTitle,
+  AlertDialogDescription,
+  AlertDialogAction,
+  AlertDialogCancel,
+} from "@/components/ui/alert-dialog";
+import { buttonVariants } from "@/components/ui/button";
+import { ComponentPreview, InstallCommand } from "@/components/docs/code-block";
+
+# Alert Dialog
+
+A modal dialog that interrupts the user with important content and requires an explicit action, built on top of Base UI.
+
+## Installation
+
+<InstallCommand name="alert-dialog" />
+
+```tsx
+import {
+  AlertDialog,
+  AlertDialogTrigger,
+  AlertDialogContent,
+  AlertDialogHeader,
+  AlertDialogFooter,
+  AlertDialogTitle,
+  AlertDialogDescription,
+  AlertDialogAction,
+  AlertDialogCancel,
+} from "@/components/ui/alert-dialog";
+```
+
+## Usage
+
+<ComponentPreview>
+  <AlertDialog>
+    <AlertDialogTrigger className={buttonVariants({ variant: "error" })}>
+      Delete account
+    </AlertDialogTrigger>
+    <AlertDialogContent>
+      <AlertDialogHeader>
+        <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
+        <AlertDialogDescription>
+          This action cannot be undone. This will permanently delete your account
+          and remove your data from our servers.
+        </AlertDialogDescription>
+      </AlertDialogHeader>
+      <AlertDialogFooter>
+        <AlertDialogCancel>Cancel</AlertDialogCancel>
+        <AlertDialogAction>Delete Account</AlertDialogAction>
+      </AlertDialogFooter>
+    </AlertDialogContent>
+  </AlertDialog>
+</ComponentPreview>
+
+```tsx
+import {
+  AlertDialog,
+  AlertDialogTrigger,
+  AlertDialogContent,
+  AlertDialogHeader,
+  AlertDialogFooter,
+  AlertDialogTitle,
+  AlertDialogDescription,
+  AlertDialogAction,
+  AlertDialogCancel,
+} from "@/components/ui/alert-dialog";
+import { buttonVariants } from "@/components/ui/button";
+
+export default function AlertDialogDemo() {
+  return (
+    <AlertDialog>
+      <AlertDialogTrigger className={buttonVariants({ variant: "error" })}>
+        Delete account
+      </AlertDialogTrigger>
+      <AlertDialogContent>
+        <AlertDialogHeader>
+          <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
+          <AlertDialogDescription>
+            This action cannot be undone. This will permanently delete your account
+            and remove your data from our servers.
+          </AlertDialogDescription>
+        </AlertDialogHeader>
+        <AlertDialogFooter>
+          <AlertDialogCancel>Cancel</AlertDialogCancel>
+          <AlertDialogAction>Delete Account</AlertDialogAction>
+        </AlertDialogFooter>
+      </AlertDialogContent>
+    </AlertDialog>
+  );
+}
+```
+
+## Examples
+
+### Custom Trigger
+
+You can use any component as a trigger by using the `render` prop on `AlertDialogTrigger`.
+
+<ComponentPreview>
+  <AlertDialog>
+    <AlertDialogTrigger render={<button className="text-sm font-medium hover:underline" />}>
+      Open dialog
+    </AlertDialogTrigger>
+    <AlertDialogContent>
+      <AlertDialogHeader>
+        <AlertDialogTitle>Example</AlertDialogTitle>
+        <AlertDialogDescription>
+          This is an example description.
+        </AlertDialogDescription>
+      </AlertDialogHeader>
+      <AlertDialogFooter>
+        <AlertDialogCancel>Close</AlertDialogCancel>
+        <AlertDialogAction>Continue</AlertDialogAction>
+      </AlertDialogFooter>
+    </AlertDialogContent>
+  </AlertDialog>
+</ComponentPreview>
+
+```tsx
+<AlertDialog>
+  <AlertDialogTrigger render={<button className="text-sm font-medium hover:underline" />}>
+    Open dialog
+  </AlertDialogTrigger>
+  <AlertDialogContent>
+    <AlertDialogHeader>
+      <AlertDialogTitle>Example</AlertDialogTitle>
+      <AlertDialogDescription>
+        This is an example description.
+      </AlertDialogDescription>
+    </AlertDialogHeader>
+    <AlertDialogFooter>
+      <AlertDialogCancel>Close</AlertDialogCancel>
+      <AlertDialogAction>Continue</AlertDialogAction>
+    </AlertDialogFooter>
+  </AlertDialogContent>
+</AlertDialog>
+```
+
+## Props
+
+| Component | Description |
+| :--- | :--- |
+| `AlertDialog` | The root component that manages the dialog state. |
+| `AlertDialogTrigger` | The component that opens the dialog. |
+| `AlertDialogContent` | The container for the dialog content, including backdrop. |
+| `AlertDialogHeader` | Contains the title and description for the dialog. |
+| `AlertDialogFooter` | Contains the action and cancel buttons. |
+| `AlertDialogTitle` | The accessible title for the dialog. |
+| `AlertDialogDescription` | The accessible description for the dialog. |
+| `AlertDialogAction` | A button that performs the primary action (styled as an error button). |
+| `AlertDialogCancel` | A button that cancels the action (styled as a secondary button). |

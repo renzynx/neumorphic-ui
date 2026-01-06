@@ -1,0 +1,16 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "collapsible",
+  "title": "Collapsible",
+  "description": "A neumorphic collapsible component for toggling content visibility.",
+  "dependencies": ["@base-ui/react"],
+  "registryDependencies": ["utils"],
+  "files": [
+    {
+      "path": "src/components/ui/collapsible.tsx",
+      "content": "\"use client\";\n\nimport { Collapsible as BaseCollapsible } from \"@base-ui/react/collapsible\";\nimport * as React from \"react\";\n\nimport { cn } from \"@/lib/utils\";\n\nconst Collapsible = BaseCollapsible.Root;\n\nconst CollapsibleTrigger = React.forwardRef<\n  HTMLButtonElement,\n  React.ComponentPropsWithoutRef<typeof BaseCollapsible.Trigger>\n>(({ className, ...props }, ref) => (\n  <BaseCollapsible.Trigger\n    ref={ref}\n    className={cn(\n      \"group flex w-full items-center justify-between rounded-md py-2 font-medium transition-all hover:brightness-105 data-[disabled]:cursor-not-allowed data-[disabled]:opacity-50\",\n      className,\n    )}\n    {...props}\n  />\n));\nCollapsibleTrigger.displayName = \"CollapsibleTrigger\";\n\nconst CollapsibleContent = React.forwardRef<\n  HTMLDivElement,\n  React.ComponentPropsWithoutRef<typeof BaseCollapsible.Panel>\n>(({ className, children, ...props }, ref) => (\n  <BaseCollapsible.Panel\n    ref={ref}\n    className={cn(\n      \"overflow-hidden transition-[grid-template-rows,padding] duration-300 ease-in-out data-[state=closed]:grid data-[state=open]:grid data-[state=closed]:grid-rows-[0fr] data-[state=open]:grid-rows-[1fr] data-[starting-style]:grid-rows-[0fr] data-[ending-style]:grid-rows-[0fr]\",\n      className,\n    )}\n    {...props}\n  >\n    <div className=\"min-h-0\">{children}</div>\n  </BaseCollapsible.Panel>\n));\nCollapsibleContent.displayName = \"CollapsibleContent\";\n\nexport { Collapsible, CollapsibleTrigger, CollapsibleContent };\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

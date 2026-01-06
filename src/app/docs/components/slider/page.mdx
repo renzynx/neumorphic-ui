@@ -1,0 +1,102 @@
+import Slider from "@/components/ui/slider";
+import { ComponentPreview, InstallCommand } from "@/components/docs/code-block";
+
+# Slider
+
+A component that allows users to select a value from a range.
+
+## Installation
+
+<InstallCommand name="slider" />
+
+```tsx
+import Slider from "@/components/ui/slider";
+```
+
+## Usage
+
+<ComponentPreview>
+  <Slider defaultValue={[50]} className="w-full max-w-md" />
+</ComponentPreview>
+
+```tsx
+import Slider from "@/components/ui/slider";
+
+export default function SliderDemo() {
+  return <Slider defaultValue={[50]} />;
+}
+```
+
+## Examples
+
+### Sizes
+
+The slider comes in three sizes: small, medium, and large.
+
+<ComponentPreview>
+  <div className="flex flex-col gap-8 w-full max-w-md">
+    <Slider size="sm" defaultValue={[30]} />
+    <Slider size="md" defaultValue={[50]} />
+    <Slider size="lg" defaultValue={[70]} />
+  </div>
+</ComponentPreview>
+
+```tsx
+import Slider from "@/components/ui/slider";
+
+export default function SliderSizes() {
+  return (
+    <div className="flex flex-col gap-8 w-full max-w-md">
+      <Slider size="sm" defaultValue={[30]} />
+      <Slider size="md" defaultValue={[50]} />
+      <Slider size="lg" defaultValue={[70]} />
+    </div>
+  );
+}
+```
+
+### Min, Max, and Step
+
+You can define the range and the increment value of the slider.
+
+<ComponentPreview>
+  <Slider defaultValue={[20]} min={0} max={50} step={5} className="w-full max-w-md" />
+</ComponentPreview>
+
+```tsx
+import Slider from "@/components/ui/slider";
+
+export default function SliderConfig() {
+  return <Slider defaultValue={[20]} min={0} max={50} step={5} />;
+}
+```
+
+### Disabled State
+
+The slider can be disabled to prevent user interaction.
+
+<ComponentPreview>
+  <Slider disabled defaultValue={[50]} className="w-full max-w-md" />
+</ComponentPreview>
+
+```tsx
+import Slider from "@/components/ui/slider";
+
+export default function SliderDisabled() {
+  return <Slider disabled defaultValue={[50]} />;
+}
+```
+
+## Props
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| size | `"sm" \| "md" \| "lg"` | `"md"` | The size of the slider. |
+| defaultValue | `number[]` | - | The initial value of the slider. |
+| value | `number[]` | - | The controlled value of the slider. |
+| onValueChange | `(value: number[]) => void` | - | Event handler called when the value changes. |
+| min | `number` | `0` | The minimum value of the slider. |
+| max | `number` | `100` | The maximum value of the slider. |
+| step | `number` | `1` | The step increment of the slider. |
+| disabled | `boolean` | `false` | Whether the slider is disabled. |
+| className | `string` | - | Additional CSS classes to apply to the slider. |

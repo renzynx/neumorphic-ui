@@ -1,0 +1,86 @@
+import Toggle from "@/components/ui/toggle";
+import { TextB } from "@phosphor-icons/react/dist/ssr";
+import { ComponentPreview, InstallCommand } from "@/components/docs/code-block";
+
+# Toggle
+
+A two-state button that can be on or off, built on top of Base UI.
+
+## Installation
+
+<InstallCommand name="toggle" />
+
+```tsx
+import Toggle from "@/components/ui/toggle";
+```
+
+## Usage
+
+<ComponentPreview>
+  <Toggle aria-label="Toggle bold">
+    <TextB className="h-4 w-4" />
+  </Toggle>
+</ComponentPreview>
+
+```tsx
+import Toggle from "@/components/ui/toggle";
+import { Bold } from "lucide-react";
+
+export default function ToggleDemo() {
+  return (
+    <Toggle aria-label="Toggle bold">
+      <Bold className="h-4 w-4" />
+    </Toggle>
+  );
+}
+```
+
+## Sizes
+
+Available in three sizes to accommodate different layouts.
+
+<ComponentPreview>
+  <div className="flex items-center gap-4">
+    <Toggle size="sm" aria-label="Toggle bold small">
+      <TextB className="h-3 w-3" />
+    </Toggle>
+    <Toggle size="md" aria-label="Toggle bold medium">
+      <TextB className="h-4 w-4" />
+    </Toggle>
+    <Toggle size="lg" aria-label="Toggle bold large">
+      <TextB className="h-5 w-5" />
+    </Toggle>
+  </div>
+</ComponentPreview>
+
+```tsx
+import Toggle from "@/components/ui/toggle";
+import { Bold } from "lucide-react";
+
+export default function ToggleSizes() {
+  return (
+    <div className="flex items-center gap-4">
+      <Toggle size="sm" aria-label="Toggle bold small">
+        <Bold className="h-3 w-3" />
+      </Toggle>
+      <Toggle size="md" aria-label="Toggle bold medium">
+        <Bold className="h-4 w-4" />
+      </Toggle>
+      <Toggle size="lg" aria-label="Toggle bold large">
+        <Bold className="h-5 w-5" />
+      </Toggle>
+    </div>
+  );
+}
+```
+
+## Props
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| size | `"sm" \| "md" \| "lg"` | `"md"` | The size of the toggle. |
+| pressed | `boolean` | - | The controlled pressed state of the toggle. |
+| defaultPressed | `boolean` | `false` | The default pressed state of the toggle. |
+| onPressedChange | `(pressed: boolean) => void` | - | Event handler called when the pressed state changes. |
+| disabled | `boolean` | `false` | Whether the toggle is disabled. |
+| className | `string` | - | Additional CSS classes to apply to the toggle. |

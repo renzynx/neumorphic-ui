@@ -1,0 +1,16 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "radio",
+  "title": "Radio",
+  "description": "A neumorphic radio button component with group support.",
+  "dependencies": ["@base-ui/react", "class-variance-authority"],
+  "registryDependencies": ["utils"],
+  "files": [
+    {
+      "path": "src/components/ui/radio.tsx",
+      "content": "import { Radio as BaseRadio } from \"@base-ui/react/radio\";\nimport { RadioGroup as BaseRadioGroup } from \"@base-ui/react/radio-group\";\nimport { cva, type VariantProps } from \"class-variance-authority\";\nimport type { ComponentProps } from \"react\";\nimport { cn } from \"@/lib/utils\";\n\nconst radioVariants = cva(\n  [\n    \"rounded-full bg-surface shadow-neu-xs transition-all duration-150\",\n    \"flex items-center justify-center\",\n    \"data-[checked]:shadow-neu-pressed-xs\",\n    \"data-[disabled]:opacity-50 data-[disabled]:cursor-not-allowed\",\n    \"focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2\",\n  ],\n  {\n    variants: {\n      size: {\n        sm: \"w-4 h-4\",\n        md: \"w-5 h-5\",\n        lg: \"w-6 h-6\",\n      },\n    },\n    defaultVariants: {\n      size: \"md\",\n    },\n  },\n);\n\nconst radioIndicatorVariants = cva(\n  \"rounded-full bg-primary data-[unchecked]:hidden\",\n  {\n    variants: {\n      size: {\n        sm: \"w-1.5 h-1.5\",\n        md: \"w-2 h-2\",\n        lg: \"w-2.5 h-2.5\",\n      },\n    },\n    defaultVariants: {\n      size: \"md\",\n    },\n  },\n);\n\nexport type RadioGroupProps = ComponentProps<typeof BaseRadioGroup>;\nexport type RadioProps = ComponentProps<typeof BaseRadio.Root> &\n  VariantProps<typeof radioVariants>;\n\nexport function RadioGroup({ className, ...props }: RadioGroupProps) {\n  return (\n    <BaseRadioGroup\n      className={cn(\"flex flex-col gap-2\", className)}\n      {...props}\n    />\n  );\n}\n\nexport default function Radio({\n  className,\n  size = \"md\",\n  ...props\n}: RadioProps) {\n  return (\n    <BaseRadio.Root\n      className={cn(radioVariants({ size }), className)}\n      {...props}\n    >\n      <BaseRadio.Indicator className={radioIndicatorVariants({ size })} />\n    </BaseRadio.Root>\n  );\n}\n\nexport { radioVariants, radioIndicatorVariants };\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

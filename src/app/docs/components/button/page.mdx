@@ -1,0 +1,131 @@
+import Button from "@/components/ui/button";
+import { ComponentPreview, InstallCommand } from "@/components/docs/code-block";
+
+# Button
+
+A versatile button component with neumorphic styling, built on top of Base UI.
+
+## Installation
+
+<InstallCommand name="button" />
+
+```tsx
+import Button from "@/components/ui/button";
+```
+
+## Usage
+
+<ComponentPreview>
+  <Button>Click me</Button>
+</ComponentPreview>
+
+```tsx
+import Button from "@/components/ui/button";
+
+export default function ButtonDemo() {
+  return <Button>Click me</Button>;
+}
+```
+
+## Variants
+
+The button comes in several variants to suit different contexts.
+
+<ComponentPreview>
+  <div className="flex flex-wrap gap-4">
+    <Button variant="default">Default</Button>
+    <Button variant="primary">Primary</Button>
+    <Button variant="secondary">Secondary</Button>
+    <Button variant="success">Success</Button>
+    <Button variant="warning">Warning</Button>
+    <Button variant="error">Error</Button>
+    <Button variant="ghost">Ghost</Button>
+  </div>
+</ComponentPreview>
+
+```tsx
+import Button from "@/components/ui/button";
+
+export default function ButtonVariants() {
+  return (
+    <div className="flex flex-wrap gap-4">
+      <Button variant="default">Default</Button>
+      <Button variant="primary">Primary</Button>
+      <Button variant="secondary">Secondary</Button>
+      <Button variant="success">Success</Button>
+      <Button variant="warning">Warning</Button>
+      <Button variant="error">Error</Button>
+      <Button variant="ghost">Ghost</Button>
+    </div>
+  );
+}
+```
+
+## Sizes
+
+Available in three sizes to accommodate different layouts.
+
+<ComponentPreview>
+  <div className="flex flex-wrap items-center gap-4">
+    <Button size="sm">Small</Button>
+    <Button size="md">Medium</Button>
+    <Button size="lg">Large</Button>
+  </div>
+</ComponentPreview>
+
+```tsx
+import Button from "@/components/ui/button";
+
+export default function ButtonSizes() {
+  return (
+    <div className="flex flex-wrap items-center gap-4">
+      <Button size="sm">Small</Button>
+      <Button size="md">Medium</Button>
+      <Button size="lg">Large</Button>
+    </div>
+  );
+}
+```
+
+## Loading State
+
+Use the `isLoading` prop to show a loading spinner. The button becomes disabled automatically while loading.
+
+<ComponentPreview>
+  <Button isLoading>Loading</Button>
+</ComponentPreview>
+
+```tsx
+import Button from "@/components/ui/button";
+
+export default function ButtonLoading() {
+  return <Button isLoading>Loading</Button>;
+}
+```
+
+## Disabled State
+
+Use the `disabled` prop to disable the button.
+
+<ComponentPreview>
+  <Button disabled>Disabled</Button>
+</ComponentPreview>
+
+```tsx
+import Button from "@/components/ui/button";
+
+export default function ButtonDisabled() {
+  return <Button disabled>Disabled</Button>;
+}
+```
+
+## Props
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| variant | `"default" \| "primary" \| "secondary" \| "success" \| "warning" \| "error" \| "ghost"` | `"default"` | The visual style of the button. |
+| size | `"sm" \| "md" \| "lg"` | `"md"` | The size of the button. |
+| isLoading | `boolean` | `false` | Whether the button is in a loading state. |
+| disabled | `boolean` | `false` | Whether the button is disabled. |
+| children | `React.ReactNode` | - | The content to be displayed inside the button. |
+| className | `string` | - | Additional CSS classes to apply to the button. |

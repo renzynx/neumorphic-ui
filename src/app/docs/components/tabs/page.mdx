@@ -1,0 +1,126 @@
+import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
+import { ComponentPreview, InstallCommand } from "@/components/docs/code-block";
+
+# Tabs
+
+A set of layered sections of content with neumorphic styling, built on top of Base UI.
+
+## Installation
+
+<InstallCommand name="tabs" />
+
+```tsx
+import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
+```
+
+## Usage
+
+<ComponentPreview>
+  <Tabs defaultValue="account">
+    <TabsList>
+      <TabsTrigger value="account">Account</TabsTrigger>
+      <TabsTrigger value="password">Password</TabsTrigger>
+    </TabsList>
+    <TabsContent value="account">
+      Make changes to your account here.
+    </TabsContent>
+    <TabsContent value="password">
+      Change your password here.
+    </TabsContent>
+  </Tabs>
+</ComponentPreview>
+
+```tsx
+import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
+
+export default function TabsDemo() {
+  return (
+    <Tabs defaultValue="account">
+      <TabsList>
+        <TabsTrigger value="account">Account</TabsTrigger>
+        <TabsTrigger value="password">Password</TabsTrigger>
+      </TabsList>
+      <TabsContent value="account">
+        Make changes to your account here.
+      </TabsContent>
+      <TabsContent value="password">
+        Change your password here.
+      </TabsContent>
+    </Tabs>
+  );
+}
+```
+
+## Examples
+
+### Sizes
+
+The Tabs component is available in small, medium, and large sizes.
+
+<ComponentPreview>
+  <div className="flex flex-col gap-8">
+    <Tabs defaultValue="tab1" size="sm">
+      <TabsList>
+        <TabsTrigger value="tab1">Small Tab 1</TabsTrigger>
+        <TabsTrigger value="tab2">Small Tab 2</TabsTrigger>
+      </TabsList>
+    </Tabs>
+    <Tabs defaultValue="tab1" size="md">
+      <TabsList>
+        <TabsTrigger value="tab1">Medium Tab 1</TabsTrigger>
+        <TabsTrigger value="tab2">Medium Tab 2</TabsTrigger>
+      </TabsList>
+    </Tabs>
+    <Tabs defaultValue="tab1" size="lg">
+      <TabsList>
+        <TabsTrigger value="tab1">Large Tab 1</TabsTrigger>
+        <TabsTrigger value="tab2">Large Tab 2</TabsTrigger>
+      </TabsList>
+    </Tabs>
+  </div>
+</ComponentPreview>
+
+```tsx
+import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
+
+export default function TabsSizes() {
+  return (
+    <div className="flex flex-col gap-8">
+      <Tabs defaultValue="tab1" size="sm">
+        <TabsList>
+          <TabsTrigger value="tab1">Small Tab 1</TabsTrigger>
+          <TabsTrigger value="tab2">Small Tab 2</TabsTrigger>
+        </TabsList>
+      </Tabs>
+
+      <Tabs defaultValue="tab1" size="md">
+        <TabsList>
+          <TabsTrigger value="tab1">Medium Tab 1</TabsTrigger>
+          <TabsTrigger value="tab2">Medium Tab 2</TabsTrigger>
+        </TabsList>
+      </Tabs>
+
+      <Tabs defaultValue="tab1" size="lg">
+        <TabsList>
+          <TabsTrigger value="tab1">Large Tab 1</TabsTrigger>
+          <TabsTrigger value="tab2">Large Tab 2</TabsTrigger>
+        </TabsList>
+      </Tabs>
+    </div>
+  );
+}
+```
+
+## Props
+
+| Component | Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- | :--- |
+| `Tabs` | `size` | `"sm" \| "md" \| "lg"` | `"md"` | The size of the tabs. |
+| `Tabs` | `defaultValue` | `string` | - | The value of the tab that should be active by default. |
+| `Tabs` | `value` | `string` | - | The value of the active tab, for controlled components. |
+| `Tabs` | `onValueChange` | `(value: string) => void` | - | Callback fired when the active tab changes. |
+| `Tabs` | `orientation` | `"horizontal" \| "vertical"` | `"horizontal"` | The orientation of the tabs. |
+| `TabsList` | `className` | `string` | - | Additional CSS classes for the tabs list. |
+| `TabsTrigger` | `value` | `string` | - | A unique value for the tab. |
+| `TabsTrigger` | `disabled` | `boolean` | `false` | Whether the tab is disabled. |
+| `TabsContent` | `value` | `string` | - | A unique value for the panel. |

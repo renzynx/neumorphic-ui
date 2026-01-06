@@ -1,0 +1,95 @@
+import {
+  NumberField,
+  NumberFieldGroup,
+  NumberFieldInput,
+  NumberFieldIncrement,
+  NumberFieldDecrement,
+} from "@/components/ui/number-field";
+import { ComponentPreview, InstallCommand } from "@/components/docs/code-block";
+
+# Number Field
+
+An input field optimized for numeric values with increment and decrement buttons.
+
+## Installation
+
+<InstallCommand name="number-field" />
+
+```tsx
+import {
+  NumberField,
+  NumberFieldGroup,
+  NumberFieldInput,
+  NumberFieldIncrement,
+  NumberFieldDecrement,
+} from "@/components/ui/number-field";
+```
+
+## Usage
+
+<ComponentPreview>
+  <NumberField defaultValue={10}>
+    <NumberFieldGroup>
+      <NumberFieldDecrement />
+      <NumberFieldInput />
+      <NumberFieldIncrement />
+    </NumberFieldGroup>
+  </NumberField>
+</ComponentPreview>
+
+```tsx
+import {
+  NumberField,
+  NumberFieldGroup,
+  NumberFieldInput,
+  NumberFieldIncrement,
+  NumberFieldDecrement,
+} from "@/components/ui/number-field";
+
+export default function NumberFieldDemo() {
+  return (
+    <NumberField defaultValue={10}>
+      <NumberFieldGroup>
+        <NumberFieldDecrement />
+        <NumberFieldInput />
+        <NumberFieldIncrement />
+      </NumberFieldGroup>
+    </NumberField>
+  );
+}
+```
+
+## Props
+
+### NumberField
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| defaultValue | `number` | - | The default value. |
+| value | `number` | - | The current value. |
+| onValueChange | `(value: number) => void` | - | Callback when the value changes. |
+| min | `number` | - | The minimum value. |
+| max | `number` | - | The maximum value. |
+| step | `number` | `1` | The increment/decrement step. |
+
+### NumberFieldGroup
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| children | `React.ReactNode` | - | The input and buttons. |
+| className | `string` | - | Additional CSS classes. |
+
+### NumberFieldInput
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| className | `string` | - | Additional CSS classes. |
+
+### NumberFieldIncrement
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| children | `React.ReactNode` | - | Custom increment icon. |
+| className | `string` | - | Additional CSS classes. |
+
+### NumberFieldDecrement
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| children | `React.ReactNode` | - | Custom decrement icon. |
+| className | `string` | - | Additional CSS classes. |

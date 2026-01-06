@@ -1,0 +1,16 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "separator",
+  "title": "Separator",
+  "description": "A neumorphic separator/divider component.",
+  "dependencies": ["@base-ui/react"],
+  "registryDependencies": ["utils"],
+  "files": [
+    {
+      "path": "src/components/ui/separator.tsx",
+      "content": "\"use client\";\n\nimport { Separator as BaseSeparator } from \"@base-ui/react/separator\";\nimport * as React from \"react\";\nimport { cn } from \"@/lib/utils\";\n\nconst Separator = React.forwardRef<\n  React.ComponentRef<typeof BaseSeparator>,\n  React.ComponentPropsWithoutRef<typeof BaseSeparator>\n>(({ className, orientation = \"horizontal\", ...props }, ref) => (\n  <BaseSeparator\n    ref={ref}\n    orientation={orientation}\n    className={cn(\n      \"shrink-0 bg-border\",\n      orientation === \"horizontal\"\n        ? \"h-[1px] w-full shadow-[0_1px_0_var(--color-surface-highlight)]\"\n        : \"h-full w-[1px] shadow-[1px_0_0_var(--color-surface-highlight)]\",\n      className,\n    )}\n    {...props}\n  />\n));\nSeparator.displayName = BaseSeparator.displayName || \"Separator\";\n\nexport { Separator };\nexport type SeparatorProps = React.ComponentPropsWithoutRef<\n  typeof BaseSeparator\n>;\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

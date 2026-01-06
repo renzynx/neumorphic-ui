@@ -1,0 +1,16 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "field",
+  "title": "Field",
+  "description": "A form field wrapper with label, description, and error states.",
+  "dependencies": ["@base-ui/react"],
+  "registryDependencies": ["utils"],
+  "files": [
+    {
+      "path": "src/components/ui/field.tsx",
+      "content": "\"use client\";\n\nimport { Field as BaseField } from \"@base-ui/react/field\";\nimport * as React from \"react\";\n\nimport { cn } from \"@/lib/utils\";\n\nconst Field = React.forwardRef<\n  React.ComponentRef<typeof BaseField.Root>,\n  React.ComponentPropsWithoutRef<typeof BaseField.Root>\n>(({ className, ...props }, ref) => (\n  <BaseField.Root ref={ref} className={cn(\"space-y-2\", className)} {...props} />\n));\nField.displayName = \"Field\";\n\nconst FieldLabel = React.forwardRef<\n  React.ComponentRef<typeof BaseField.Label>,\n  React.ComponentPropsWithoutRef<typeof BaseField.Label>\n>(({ className, ...props }, ref) => (\n  <BaseField.Label\n    ref={ref}\n    className={cn(\n      \"text-sm font-medium text-foreground data-[disabled]:opacity-50\",\n      className,\n    )}\n    {...props}\n  />\n));\nFieldLabel.displayName = \"FieldLabel\";\n\nconst FieldControl = React.forwardRef<\n  React.ComponentRef<typeof BaseField.Control>,\n  React.ComponentPropsWithoutRef<typeof BaseField.Control>\n>(({ className, ...props }, ref) => (\n  <BaseField.Control ref={ref} className={cn(\"\", className)} {...props} />\n));\nFieldControl.displayName = \"FieldControl\";\n\nconst FieldDescription = React.forwardRef<\n  React.ComponentRef<typeof BaseField.Description>,\n  React.ComponentPropsWithoutRef<typeof BaseField.Description>\n>(({ className, ...props }, ref) => (\n  <BaseField.Description\n    ref={ref}\n    className={cn(\"text-sm text-muted-foreground\", className)}\n    {...props}\n  />\n));\nFieldDescription.displayName = \"FieldDescription\";\n\nconst FieldError = React.forwardRef<\n  React.ComponentRef<typeof BaseField.Error>,\n  React.ComponentPropsWithoutRef<typeof BaseField.Error>\n>(({ className, ...props }, ref) => (\n  <BaseField.Error\n    ref={ref}\n    className={cn(\"text-sm text-destructive animate-in fade-in\", className)}\n    {...props}\n  />\n));\nFieldError.displayName = \"FieldError\";\n\nexport { Field, FieldLabel, FieldControl, FieldDescription, FieldError };\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

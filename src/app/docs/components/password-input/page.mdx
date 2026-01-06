@@ -1,0 +1,48 @@
+import PasswordInput from "@/components/ui/password-input";
+import { ComponentPreview, InstallCommand } from "@/components/docs/code-block";
+
+# Password Input
+
+A specialized input component for passwords with a built-in visibility toggle.
+
+## Installation
+
+<InstallCommand name="password-input" />
+
+```tsx
+import { PasswordInput } from "@/components/ui/password-input";
+```
+
+## Usage
+
+<ComponentPreview>
+  <PasswordInput placeholder="Enter your password" wrapperClassName="w-full max-w-md" />
+</ComponentPreview>
+
+```tsx
+import { PasswordInput } from "@/components/ui/password-input";
+
+export default function PasswordInputDemo() {
+  return <PasswordInput placeholder="Enter your password" />;
+}
+```
+
+## Sizes
+
+<ComponentPreview>
+  <div className="flex flex-col gap-4 w-full max-w-md">
+    <PasswordInput size="sm" placeholder="Small" wrapperClassName="w-full" />
+    <PasswordInput size="md" placeholder="Medium" wrapperClassName="w-full" />
+    <PasswordInput size="lg" placeholder="Large" wrapperClassName="w-full" />
+  </div>
+</ComponentPreview>
+
+## Props
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| size | `"sm" \| "md" \| "lg"` | `"md"` | The size of the input. |
+| error | `boolean` | `false` | Whether the input is in an error state. |
+| disabled | `boolean` | `false` | Whether the input is disabled. |
+| className | `string` | - | Additional CSS classes for the input element. |
+| wrapperClassName | `string` | - | Additional CSS classes for the wrapper div (use for width constraints). |

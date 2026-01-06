@@ -1,0 +1,111 @@
+import Input from "@/components/ui/input";
+import { Field, FieldLabel } from "@/components/ui/field";
+import { ComponentPreview, InstallCommand } from "@/components/docs/code-block";
+
+# Input
+
+Displays a form input field or a component that looks like an input field.
+
+## Installation
+
+<InstallCommand name="input" />
+
+```tsx
+import Input from "@/components/ui/input";
+```
+
+## Usage
+
+<ComponentPreview>
+  <Input type="email" placeholder="Email" />
+</ComponentPreview>
+
+```tsx
+import Input from "@/components/ui/input";
+
+export default function InputDemo() {
+  return <Input type="email" placeholder="Email" />;
+}
+```
+
+## With Label
+
+<ComponentPreview>
+  <Field>
+    <FieldLabel>Email</FieldLabel>
+    <Input type="email" placeholder="Email" />
+  </Field>
+</ComponentPreview>
+
+```tsx
+import { Field, FieldLabel } from "@/components/ui/field";
+import Input from "@/components/ui/input";
+
+export default function InputWithLabel() {
+  return (
+    <Field>
+      <FieldLabel>Email</FieldLabel>
+      <Input type="email" placeholder="Email" />
+    </Field>
+  );
+}
+```
+
+## Disabled State
+
+<ComponentPreview>
+  <Input disabled type="email" placeholder="Email" />
+</ComponentPreview>
+
+```tsx
+import Input from "@/components/ui/input";
+
+export default function InputDisabled() {
+  return <Input disabled type="email" placeholder="Email" />;
+}
+```
+
+## With Placeholder
+
+<ComponentPreview>
+  <Input type="text" placeholder="Type something..." />
+</ComponentPreview>
+
+```tsx
+import Input from "@/components/ui/input";
+
+export default function InputPlaceholder() {
+  return <Input type="text" placeholder="Type something..." />;
+}
+```
+
+## File Input
+
+<ComponentPreview>
+  <Field>
+    <FieldLabel>Picture</FieldLabel>
+    <Input id="picture" type="file" />
+  </Field>
+</ComponentPreview>
+
+```tsx
+import { Field, FieldLabel } from "@/components/ui/field";
+import Input from "@/components/ui/input";
+
+export default function InputFile() {
+  return (
+    <Field>
+      <FieldLabel>Picture</FieldLabel>
+      <Input id="picture" type="file" />
+    </Field>
+  );
+}
+```
+
+## Props
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| size | `"sm" \| "md" \| "lg"` | `"md"` | The size of the input field. |
+| error | `boolean` | `false` | Whether the input is in an error state, applying a destructive shadow. |
+| disabled | `boolean` | `false` | Whether the input is disabled. |

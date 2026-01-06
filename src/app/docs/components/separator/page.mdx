@@ -1,0 +1,101 @@
+import { Separator } from "@/components/ui/separator";
+import { ComponentPreview, InstallCommand } from "@/components/docs/code-block";
+
+# Separator
+
+A visual line that separates content, built on top of Base UI.
+
+## Installation
+
+<InstallCommand name="separator" />
+
+```tsx
+import { Separator } from "@/components/ui/separator";
+```
+
+## Usage
+
+### Horizontal
+
+The default orientation of the separator is horizontal.
+
+<ComponentPreview>
+  <div className="w-full max-w-md">
+    <div className="space-y-1">
+      <h4 className="text-sm font-medium leading-none">Library</h4>
+      <span className="text-sm text-foreground/50 block">
+        An open-source UI component library.
+      </span>
+    </div>
+    <Separator className="my-4" />
+    <div className="flex h-5 items-center space-x-4 text-sm">
+      <div>Blog</div>
+      <Separator orientation="vertical" />
+      <div>Docs</div>
+      <Separator orientation="vertical" />
+      <div>Source</div>
+    </div>
+  </div>
+</ComponentPreview>
+
+```tsx
+import { Separator } from "@/components/ui/separator";
+
+export default function SeparatorHorizontalDemo() {
+  return (
+    <div>
+      <div className="space-y-1">
+        <h4 className="text-sm font-medium leading-none">Library</h4>
+        <p className="text-sm text-foreground/50">
+          An open-source UI component library.
+        </p>
+      </div>
+      <Separator className="my-4" />
+      <div className="flex h-5 items-center space-x-4 text-sm">
+        <div>Blog</div>
+        <Separator orientation="vertical" />
+        <div>Docs</div>
+        <Separator orientation="vertical" />
+        <div>Source</div>
+      </div>
+    </div>
+  );
+}
+```
+
+### Vertical
+
+Use the `orientation` prop to set the separator to vertical.
+
+<ComponentPreview>
+  <div className="flex h-5 items-center space-x-4 text-sm">
+    <div>Blog</div>
+    <Separator orientation="vertical" />
+    <div>Docs</div>
+    <Separator orientation="vertical" />
+    <div>Source</div>
+  </div>
+</ComponentPreview>
+
+```tsx
+import { Separator } from "@/components/ui/separator";
+
+export default function SeparatorVerticalDemo() {
+  return (
+    <div className="flex h-5 items-center space-x-4 text-sm">
+      <div>Blog</div>
+      <Separator orientation="vertical" />
+      <div>Docs</div>
+      <Separator orientation="vertical" />
+      <div>Source</div>
+    </div>
+  );
+}
+```
+
+## Props
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| orientation | `"horizontal" \| "vertical"` | `"horizontal"` | The orientation of the separator. |
+| className | `string` | - | Additional CSS classes to apply to the separator. |

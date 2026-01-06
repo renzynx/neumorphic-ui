@@ -1,0 +1,148 @@
+import Radio, { RadioGroup } from "@/components/ui/radio";
+import { ComponentPreview, InstallCommand } from "@/components/docs/code-block";
+
+# Radio Group
+
+A set of checkable buttons where only one can be selected at a time, with neumorphic styling.
+
+## Installation
+
+<InstallCommand name="radio" />
+
+```tsx
+import Radio, { RadioGroup } from "@/components/ui/radio";
+```
+
+## Usage
+
+<ComponentPreview>
+  <RadioGroup defaultValue="option-1">
+    <div className="flex items-center gap-2">
+      <Radio value="option-1" id="r1" />
+      <label htmlFor="r1" className="text-sm font-medium leading-none cursor-pointer">
+        Option 1
+      </label>
+    </div>
+    <div className="flex items-center gap-2">
+      <Radio value="option-2" id="r2" />
+      <label htmlFor="r2" className="text-sm font-medium leading-none cursor-pointer">
+        Option 2
+      </label>
+    </div>
+  </RadioGroup>
+</ComponentPreview>
+
+```tsx
+import Radio, { RadioGroup } from "@/components/ui/radio";
+
+export default function RadioDemo() {
+  return (
+    <RadioGroup defaultValue="option-1">
+      <div className="flex items-center gap-2">
+        <Radio value="option-1" id="r1" />
+        <label htmlFor="r1" className="text-sm font-medium leading-none cursor-pointer">
+          Option 1
+        </label>
+      </div>
+      <div className="flex items-center gap-2">
+        <Radio value="option-2" id="r2" />
+        <label htmlFor="r2" className="text-sm font-medium leading-none cursor-pointer">
+          Option 2
+        </label>
+      </div>
+    </RadioGroup>
+  );
+}
+```
+
+## Sizes
+
+The radio button is available in different sizes.
+
+<ComponentPreview>
+  <div className="flex flex-col gap-4">
+    <div className="flex items-center gap-2">
+      <Radio value="sm" size="sm" id="s1" />
+      <label htmlFor="s1">Small</label>
+    </div>
+    <div className="flex items-center gap-2">
+      <Radio value="md" size="md" id="s2" />
+      <label htmlFor="s2">Medium</label>
+    </div>
+    <div className="flex items-center gap-2">
+      <Radio value="lg" size="lg" id="s3" />
+      <label htmlFor="s3">Large</label>
+    </div>
+  </div>
+</ComponentPreview>
+
+```tsx
+import Radio, { RadioGroup } from "@/components/ui/radio";
+
+export default function RadioSizes() {
+  return (
+    <div className="flex flex-col gap-4">
+      <div className="flex items-center gap-2">
+        <Radio value="sm" size="sm" id="s1" />
+        <label htmlFor="s1">Small</label>
+      </div>
+      <div className="flex items-center gap-2">
+        <Radio value="md" size="md" id="s2" />
+        <label htmlFor="s2">Medium</label>
+      </div>
+      <div className="flex items-center gap-2">
+        <Radio value="lg" size="lg" id="s3" />
+        <label htmlFor="s3">Large</label>
+      </div>
+    </div>
+  );
+}
+```
+
+## Disabled
+
+Use the `disabled` prop to disable the radio button.
+
+<ComponentPreview>
+  <RadioGroup defaultValue="disabled">
+    <div className="flex items-center gap-2">
+      <Radio value="disabled" disabled id="rd" />
+      <label htmlFor="rd" className="opacity-50">Disabled Option</label>
+    </div>
+  </RadioGroup>
+</ComponentPreview>
+
+```tsx
+import Radio, { RadioGroup } from "@/components/ui/radio";
+
+export default function RadioDisabled() {
+  return (
+    <RadioGroup defaultValue="disabled">
+      <div className="flex items-center gap-2">
+        <Radio value="disabled" disabled id="rd" />
+        <label htmlFor="rd" className="opacity-50">Disabled Option</label>
+      </div>
+    </RadioGroup>
+  );
+}
+```
+
+## Props
+
+### Radio
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| value | `string` | - | The value of the radio button. |
+| size | `"sm" \| "md" \| "lg"` | `"md"` | The size of the radio button. |
+| disabled | `boolean` | `false` | Whether the radio button is disabled. |
+| className | `string` | - | Additional CSS classes to apply to the radio button. |
+
+### RadioGroup
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| defaultValue | `string` | - | The value of the radio button that should be checked by default. |
+| value | `string` | - | The controlled value of the checked radio button. |
+| onValueChange | `(value: string) => void` | - | Event handler called when the checked value changes. |
+| className | `string` | - | Additional CSS classes to apply to the group. |

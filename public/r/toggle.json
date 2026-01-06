@@ -1,0 +1,16 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "toggle",
+  "title": "Toggle",
+  "description": "A neumorphic toggle button component.",
+  "dependencies": ["@base-ui/react", "class-variance-authority"],
+  "registryDependencies": ["utils"],
+  "files": [
+    {
+      "path": "src/components/ui/toggle.tsx",
+      "content": "import { Toggle as BaseToggle } from \"@base-ui/react/toggle\";\nimport { cva, type VariantProps } from \"class-variance-authority\";\nimport type { ComponentProps } from \"react\";\nimport { cn } from \"@/lib/utils\";\n\nconst toggleVariants = cva(\n  [\n    \"flex items-center justify-center\",\n    \"rounded-xl font-medium\",\n    \"bg-surface text-foreground/70\",\n    \"shadow-neu-sm\",\n    \"transition-all duration-150\",\n    \"hover:brightness-105\",\n    \"data-[pressed]:shadow-neu-pressed-sm data-[pressed]:text-foreground\",\n    \"data-[disabled]:opacity-50 data-[disabled]:cursor-not-allowed\",\n    \"focus-visible:outline-2 focus-visible:outline-primary focus-visible:-outline-offset-2\",\n  ],\n  {\n    variants: {\n      size: {\n        sm: \"h-8 px-3 text-sm\",\n        md: \"h-10 px-4 text-base\",\n        lg: \"h-12 px-5 text-lg\",\n      },\n    },\n    defaultVariants: {\n      size: \"md\",\n    },\n  },\n);\n\nexport type ToggleProps = ComponentProps<typeof BaseToggle> &\n  VariantProps<typeof toggleVariants>;\n\nexport default function Toggle({\n  className,\n  size,\n  children,\n  ...props\n}: ToggleProps) {\n  return (\n    <BaseToggle className={cn(toggleVariants({ size }), className)} {...props}>\n      {children}\n    </BaseToggle>\n  );\n}\n\nexport { toggleVariants };\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

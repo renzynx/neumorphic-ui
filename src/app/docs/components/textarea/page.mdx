@@ -1,0 +1,95 @@
+import { Textarea } from "@/components/ui/textarea";
+import { ComponentPreview, InstallCommand } from "@/components/docs/code-block";
+
+# Textarea
+
+A multi-line text input component with neumorphic styling.
+
+## Installation
+
+<InstallCommand name="textarea" />
+
+```tsx
+import { Textarea } from "@/components/ui/textarea";
+```
+
+## Usage
+
+<ComponentPreview>
+  <Textarea placeholder="Type your message here." className="w-full max-w-md" />
+</ComponentPreview>
+
+```tsx
+import { Textarea } from "@/components/ui/textarea";
+
+export default function TextareaDemo() {
+  return <Textarea placeholder="Type your message here." />;
+}
+```
+
+## Sizes
+
+Available in three sizes to accommodate different layouts.
+
+<ComponentPreview>
+  <div className="grid w-full max-w-md gap-4">
+    <Textarea size="sm" placeholder="Small textarea" />
+    <Textarea size="md" placeholder="Medium textarea" />
+    <Textarea size="lg" placeholder="Large textarea" />
+  </div>
+</ComponentPreview>
+
+```tsx
+import { Textarea } from "@/components/ui/textarea";
+
+export default function TextareaSizes() {
+  return (
+    <div className="grid w-full gap-4">
+      <Textarea size="sm" placeholder="Small textarea" />
+      <Textarea size="md" placeholder="Medium textarea" />
+      <Textarea size="lg" placeholder="Large textarea" />
+    </div>
+  );
+}
+```
+
+## Error State
+
+Use the `error` prop to indicate an error state.
+
+<ComponentPreview>
+  <Textarea error placeholder="Textarea with error" className="w-full max-w-md" />
+</ComponentPreview>
+
+```tsx
+import { Textarea } from "@/components/ui/textarea";
+
+export default function TextareaError() {
+  return <Textarea error placeholder="Textarea with error" />;
+}
+```
+
+## Disabled State
+
+Use the `disabled` prop to disable the textarea.
+
+<ComponentPreview>
+  <Textarea disabled placeholder="Disabled textarea" className="w-full max-w-md" />
+</ComponentPreview>
+
+```tsx
+import { Textarea } from "@/components/ui/textarea";
+
+export default function TextareaDisabled() {
+  return <Textarea disabled placeholder="Disabled textarea" />;
+}
+```
+
+## Props
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| size | `"sm" \| "md" \| "lg"` | `"md"` | The size of the textarea. |
+| error | `boolean` | `false` | Whether the textarea is in an error state. |
+| disabled | `boolean` | `false` | Whether the textarea is disabled. |
+| className | `string` | - | Additional CSS classes to apply to the textarea. |

@@ -1,0 +1,16 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "slider",
+  "title": "Slider",
+  "description": "A neumorphic slider component with draggable thumb.",
+  "dependencies": ["@base-ui/react", "class-variance-authority"],
+  "registryDependencies": ["utils"],
+  "files": [
+    {
+      "path": "src/components/ui/slider.tsx",
+      "content": "import { Slider as BaseSlider } from \"@base-ui/react/slider\";\nimport { cva, type VariantProps } from \"class-variance-authority\";\nimport type { ComponentProps } from \"react\";\nimport { cn } from \"@/lib/utils\";\n\nconst sliderTrackVariants = cva(\n  \"relative grow rounded-full bg-surface shadow-neu-inset-sm\",\n  {\n    variants: {\n      size: {\n        sm: \"h-1.5\",\n        md: \"h-2\",\n        lg: \"h-3\",\n      },\n    },\n    defaultVariants: {\n      size: \"md\",\n    },\n  },\n);\n\nconst sliderThumbVariants = cva(\n  [\n    \"block rounded-full bg-surface shadow-neu-sm\",\n    \"absolute top-1/2 -translate-x-1/2 -translate-y-1/2\",\n    \"focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2\",\n    \"transition-shadow duration-150\",\n    \"data-[dragging]:shadow-neu-pressed-sm\",\n  ],\n  {\n    variants: {\n      size: {\n        sm: \"w-4 h-4\",\n        md: \"w-5 h-5\",\n        lg: \"w-6 h-6\",\n      },\n    },\n    defaultVariants: {\n      size: \"md\",\n    },\n  },\n);\n\nexport type SliderProps = ComponentProps<typeof BaseSlider.Root> &\n  VariantProps<typeof sliderTrackVariants>;\n\nexport default function Slider({ size, className, ...props }: SliderProps) {\n  return (\n    <BaseSlider.Root\n      className={cn(\n        \"relative flex w-full touch-none select-none items-center\",\n        \"data-[disabled]:opacity-50 data-[disabled]:cursor-not-allowed\",\n        className,\n      )}\n      {...props}\n    >\n      <BaseSlider.Control className=\"flex w-full items-center\">\n        <BaseSlider.Track className={sliderTrackVariants({ size })}>\n          <BaseSlider.Indicator className=\"absolute h-full rounded-full bg-primary\" />\n          <BaseSlider.Thumb className={sliderThumbVariants({ size })} />\n        </BaseSlider.Track>\n      </BaseSlider.Control>\n    </BaseSlider.Root>\n  );\n}\n\nexport { sliderTrackVariants, sliderThumbVariants };\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

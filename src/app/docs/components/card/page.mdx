@@ -1,0 +1,164 @@
+import {
+  Card,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+  CardContent,
+  CardFooter,
+} from "@/components/ui/card";
+import Button from "@/components/ui/button";
+import { ComponentPreview, InstallCommand } from "@/components/docs/code-block";
+
+# Card
+
+A container for displaying content in a distinct, elevated section with neumorphic styling.
+
+## Installation
+
+<InstallCommand name="card" />
+
+```tsx
+import {
+  Card,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+  CardContent,
+  CardFooter,
+} from "@/components/ui/card"
+```
+
+## Usage
+
+<ComponentPreview>
+  <Card className="w-[350px]">
+    <CardHeader>
+      <CardTitle>Card Title</CardTitle>
+      <CardDescription>Card description goes here.</CardDescription>
+    </CardHeader>
+    <CardContent>
+      <p>Your main content goes here.</p>
+    </CardContent>
+    <CardFooter>
+      <Button>Action</Button>
+    </CardFooter>
+  </Card>
+</ComponentPreview>
+
+```tsx
+<Card>
+  <CardHeader>
+    <CardTitle>Card Title</CardTitle>
+    <CardDescription>Card description goes here.</CardDescription>
+  </CardHeader>
+  <CardContent>
+    <p>Your main content goes here.</p>
+  </CardContent>
+  <CardFooter>
+    <Button>Action</Button>
+  </CardFooter>
+</Card>
+```
+
+## Variants
+
+The Card component supports three visual variants.
+
+### Raised (Default)
+
+<ComponentPreview>
+  <Card variant="raised" className="w-[350px]">
+    <CardHeader>
+      <CardTitle>Raised Card</CardTitle>
+    </CardHeader>
+    <CardContent>
+      <p>Elevated with soft shadows for a floating effect.</p>
+    </CardContent>
+  </Card>
+</ComponentPreview>
+
+```tsx
+<Card variant="raised">
+  <CardHeader>
+    <CardTitle>Raised Card</CardTitle>
+  </CardHeader>
+  <CardContent>
+    <p>Elevated with soft shadows for a floating effect.</p>
+  </CardContent>
+</Card>
+```
+
+### Flat
+
+<ComponentPreview>
+  <Card variant="flat" className="w-[350px]">
+    <CardHeader>
+      <CardTitle>Flat Card</CardTitle>
+    </CardHeader>
+    <CardContent>
+      <p>Flush with the surface, defined by subtle borders.</p>
+    </CardContent>
+  </Card>
+</ComponentPreview>
+
+```tsx
+<Card variant="flat">
+  <CardHeader>
+    <CardTitle>Flat Card</CardTitle>
+  </CardHeader>
+  <CardContent>
+    <p>Flush with the surface, defined by subtle borders.</p>
+  </CardContent>
+</Card>
+```
+
+### Pressed
+
+<ComponentPreview>
+  <Card variant="pressed" className="w-[350px]">
+    <CardHeader>
+      <CardTitle>Pressed Card</CardTitle>
+    </CardHeader>
+    <CardContent>
+      <p>Inset shadows creating a depressed or active state.</p>
+    </CardContent>
+  </Card>
+</ComponentPreview>
+
+```tsx
+<Card variant="pressed">
+  <CardHeader>
+    <CardTitle>Pressed Card</CardTitle>
+  </CardHeader>
+  <CardContent>
+    <p>Inset shadows creating a depressed or active state.</p>
+  </CardContent>
+</Card>
+```
+
+## Props
+
+### Card
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| variant | `"raised" \| "flat" \| "pressed"` | `"raised"` | The visual style of the card. |
+| className | `string` | - | Additional CSS classes. |
+
+### CardHeader, CardContent, CardFooter
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| className | `string` | - | Additional CSS classes. |
+
+### CardTitle
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| className | `string` | - | Additional CSS classes. |
+
+### CardDescription
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| className | `string` | - | Additional CSS classes. |

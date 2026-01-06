@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "theme-toggle",
+  "title": "Theme Toggle",
+  "description": "A neumorphic theme toggle for light/dark/system modes.",
+  "dependencies": [
+    "@phosphor-icons/react",
+    "next-themes",
+    "class-variance-authority"
+  ],
+  "registryDependencies": ["utils"],
+  "files": [
+    {
+      "path": "src/components/ui/theme-toggle.tsx",
+      "content": "\"use client\";\n\nimport { cva, type VariantProps } from \"class-variance-authority\";\nimport { Desktop, Moon, Sun } from \"@phosphor-icons/react\";\nimport { useTheme } from \"next-themes\";\nimport * as React from \"react\";\n\nimport { cn } from \"@/lib/utils\";\n\nconst themeToggleVariants = cva(\n  \"relative grid grid-cols-3 gap-0 p-1 rounded-xl bg-surface shadow-neu-inset-sm isolate\",\n  {\n    variants: {\n      size: {\n        sm: \"h-8 w-[108px]\",\n        md: \"h-10 w-[132px]\",\n        lg: \"h-12 w-[156px]\",\n      },\n    },\n    defaultVariants: {\n      size: \"md\",\n    },\n  },\n);\n\nconst iconSizes = {\n  sm: 16,\n  md: 20,\n  lg: 24,\n} as const;\n\nexport type ThemeToggleProps = VariantProps<typeof themeToggleVariants> & {\n  className?: string;\n};\n\nexport function ThemeToggle({ className, size = \"md\" }: ThemeToggleProps) {\n  const { theme, setTheme } = useTheme();\n  const [mounted, setMounted] = React.useState(false);\n\n  React.useEffect(() => {\n    setMounted(true);\n  }, []);\n\n  if (!mounted) {\n    return (\n      <div className={cn(themeToggleVariants({ size }), className)}>\n        <div className=\"col-span-1\" />\n      </div>\n    );\n  }\n\n  const themes = [\n    { name: \"light\", icon: Sun },\n    { name: \"system\", icon: Desktop },\n    { name: \"dark\", icon: Moon },\n  ];\n\n  const currentIndex =\n    themes.findIndex((t) => t.name === theme) === -1\n      ? 1\n      : themes.findIndex((t) => t.name === theme);\n\n  return (\n    <div className={cn(themeToggleVariants({ size }), className)}>\n      <div\n        className={cn(\n          \"absolute top-1 bottom-1 left-1 w-[calc((100%-8px)/3)] rounded-lg bg-surface shadow-neu-sm transition-transform duration-300 ease-in-out z-0\",\n          currentIndex === 1 && \"translate-x-[100%]\",\n          currentIndex === 2 && \"translate-x-[200%]\",\n        )}\n      />\n      {themes.map((t) => {\n        const Icon = t.icon;\n        const isActive = theme === t.name;\n        return (\n          <button\n            key={t.name}\n            type=\"button\"\n            onClick={() => setTheme(t.name)}\n            className={cn(\n              \"relative z-10 flex items-center justify-center rounded-lg transition-colors duration-200\",\n              \"focus-visible:outline-2 focus-visible:outline-primary focus-visible:-outline-offset-2\",\n              isActive\n                ? \"text-primary\"\n                : \"text-foreground/60 hover:text-foreground/80\",\n            )}\n            aria-label={`Switch to ${t.name} theme`}\n          >\n            <Icon\n              size={iconSizes[size ?? \"md\"]}\n              weight={isActive ? \"fill\" : \"regular\"}\n              className={cn(\n                \"transition-all duration-300\",\n                isActive && \"scale-110\",\n                isActive && t.name === \"light\" && \"rotate-90\",\n                isActive && t.name === \"dark\" && \"-rotate-12\",\n              )}\n            />\n          </button>\n        );\n      })}\n    </div>\n  );\n}\n\nexport { themeToggleVariants };\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

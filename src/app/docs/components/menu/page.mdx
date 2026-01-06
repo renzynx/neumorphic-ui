@@ -1,0 +1,121 @@
+import {
+  Menu,
+  MenuTrigger,
+  MenuPortal,
+  MenuPositioner,
+  MenuPopup,
+  MenuItem,
+} from "@/components/ui/menu";
+import { buttonVariants } from "@/components/ui/button";
+import { ComponentPreview, InstallCommand } from "@/components/docs/code-block";
+
+# Menu
+
+A customizable menu component for displaying lists of actions or options.
+
+## Installation
+
+<InstallCommand name="menu" />
+
+```tsx
+import {
+  Menu,
+  MenuTrigger,
+  MenuPortal,
+  MenuPositioner,
+  MenuPopup,
+  MenuItem,
+  MenuCheckboxItem,
+  MenuRadioGroup,
+  MenuRadioItem,
+  MenuGroup,
+  MenuGroupLabel,
+  MenuSeparator,
+} from "@/components/ui/menu";
+```
+
+## Usage
+
+<ComponentPreview>
+  <Menu>
+    <MenuTrigger className={buttonVariants()}>Open Menu</MenuTrigger>
+    <MenuPortal>
+      <MenuPositioner>
+        <MenuPopup>
+          <MenuItem>Profile</MenuItem>
+          <MenuItem>Settings</MenuItem>
+          <MenuItem>Logout</MenuItem>
+        </MenuPopup>
+      </MenuPositioner>
+    </MenuPortal>
+  </Menu>
+</ComponentPreview>
+
+```tsx
+import {
+  Menu,
+  MenuTrigger,
+  MenuPortal,
+  MenuPositioner,
+  MenuPopup,
+  MenuItem,
+} from "@/components/ui/menu";
+import { buttonVariants } from "@/components/ui/button";
+
+export default function MenuDemo() {
+  return (
+    <Menu>
+      <MenuTrigger className={buttonVariants()}>Open Menu</MenuTrigger>
+      <MenuPortal>
+        <MenuPositioner>
+          <MenuPopup>
+            <MenuItem>Profile</MenuItem>
+            <MenuItem>Settings</MenuItem>
+            <MenuItem>Logout</MenuItem>
+          </MenuPopup>
+        </MenuPositioner>
+      </MenuPortal>
+    </Menu>
+  );
+}
+```
+
+## Props
+
+### Menu
+Root component that manages the menu state.
+
+### MenuTrigger
+The element that opens the menu.
+
+### MenuPopup
+The container for the menu items.
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| children | `React.ReactNode` | - | The menu items and separators. |
+| className | `string` | - | Additional CSS classes. |
+
+### MenuItem
+An individual item in the menu.
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| children | `React.ReactNode` | - | The item content. |
+| className | `string` | - | Additional CSS classes. |
+| disabled | `boolean` | `false` | Whether the item is disabled. |
+
+### MenuCheckboxItem
+A menu item that can be toggled.
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| checked | `boolean` | - | The checked state. |
+| onCheckedChange | `(checked: boolean) => void` | - | Callback when the checked state changes. |
+
+### MenuRadioItem
+A menu item that belongs to a radio group.
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| value | `string` | - | The value of the radio item. |

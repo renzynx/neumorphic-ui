@@ -1,0 +1,409 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "neumorphic-ui",
+  "homepage": "https://neumorphic-ui.vercel.app",
+  "items": [
+    {
+      "name": "theme",
+      "type": "registry:theme",
+      "title": "Neumorphic Theme",
+      "description": "A soft, tactile neumorphic design system with light and dark modes.",
+      "cssVars": {
+        "light": {
+          "background": "#e8e0f0",
+          "foreground": "#4a4358",
+          "card": "#e8e0f0",
+          "card-foreground": "#4a4358",
+          "popover": "#e8e0f0",
+          "popover-foreground": "#4a4358",
+          "primary": "#7c5ce2",
+          "primary-foreground": "#ffffff",
+          "secondary": "#b8a8d0",
+          "secondary-foreground": "#4a4358",
+          "muted": "#d8d0e0",
+          "muted-foreground": "#6b5f7a",
+          "accent": "#7c5ce2",
+          "accent-foreground": "#ffffff",
+          "destructive": "#e25c8d",
+          "destructive-foreground": "#ffffff",
+          "border": "#b8a8d0",
+          "input": "#b8a8d0",
+          "ring": "#7c5ce2",
+          "radius": "0.75rem",
+          "surface": "#e8e0f0",
+          "surface-highlight": "#ffffff",
+          "surface-shadow": "#b8a8d0",
+          "success": "#5ce27c",
+          "success-foreground": "#ffffff",
+          "warning": "#e2a05c",
+          "warning-foreground": "#ffffff",
+          "info": "#7c5ce2",
+          "info-foreground": "#ffffff"
+        },
+        "dark": {
+          "background": "#1a1625",
+          "foreground": "#e8e0f0",
+          "card": "#1a1625",
+          "card-foreground": "#e8e0f0",
+          "popover": "#1a1625",
+          "popover-foreground": "#e8e0f0",
+          "primary": "#8b7acc",
+          "primary-foreground": "#ffffff",
+          "secondary": "#2a2438",
+          "secondary-foreground": "#e8e0f0",
+          "muted": "#2a2438",
+          "muted-foreground": "#a89bc0",
+          "accent": "#8b7acc",
+          "accent-foreground": "#ffffff",
+          "destructive": "#cc7a8b",
+          "destructive-foreground": "#ffffff",
+          "border": "#2a2438",
+          "input": "#2a2438",
+          "ring": "#8b7acc",
+          "surface": "#1a1625",
+          "surface-highlight": "#2a2438",
+          "surface-shadow": "#0d0a14",
+          "success": "#7acc8b",
+          "success-foreground": "#1a1625",
+          "warning": "#cc9a6a",
+          "warning-foreground": "#1a1625",
+          "info": "#8b7acc",
+          "info-foreground": "#ffffff"
+        }
+      }
+    },
+    {
+      "name": "utils",
+      "type": "registry:lib",
+      "title": "Utils",
+      "description": "Utility functions including the cn helper for class merging.",
+      "dependencies": ["clsx", "tailwind-merge"],
+      "files": [{ "path": "src/lib/utils.ts", "type": "registry:lib" }]
+    },
+    {
+      "name": "button",
+      "type": "registry:ui",
+      "title": "Button",
+      "description": "A neumorphic button component with multiple variants and sizes.",
+      "dependencies": ["@base-ui/react", "class-variance-authority"],
+      "registryDependencies": ["utils"],
+      "files": [
+        { "path": "src/components/ui/button.tsx", "type": "registry:ui" }
+      ]
+    },
+    {
+      "name": "card",
+      "type": "registry:ui",
+      "title": "Card",
+      "description": "A neumorphic card component with raised, flat, and pressed variants.",
+      "dependencies": ["class-variance-authority"],
+      "registryDependencies": ["utils"],
+      "files": [{ "path": "src/components/ui/card.tsx", "type": "registry:ui" }]
+    },
+    {
+      "name": "checkbox",
+      "type": "registry:ui",
+      "title": "Checkbox",
+      "description": "A neumorphic checkbox component with multiple sizes.",
+      "dependencies": [
+        "@base-ui/react",
+        "@phosphor-icons/react",
+        "class-variance-authority"
+      ],
+      "registryDependencies": ["utils"],
+      "files": [
+        { "path": "src/components/ui/checkbox.tsx", "type": "registry:ui" }
+      ]
+    },
+    {
+      "name": "dialog",
+      "type": "registry:ui",
+      "title": "Dialog",
+      "description": "A neumorphic dialog/modal component.",
+      "dependencies": ["@base-ui/react", "@phosphor-icons/react"],
+      "registryDependencies": ["utils"],
+      "files": [
+        { "path": "src/components/ui/dialog.tsx", "type": "registry:ui" }
+      ]
+    },
+    {
+      "name": "input",
+      "type": "registry:ui",
+      "title": "Input",
+      "description": "A neumorphic input component with inset shadow styling.",
+      "dependencies": ["@base-ui/react", "class-variance-authority"],
+      "registryDependencies": ["utils"],
+      "files": [
+        { "path": "src/components/ui/input.tsx", "type": "registry:ui" }
+      ]
+    },
+    {
+      "name": "password-input",
+      "type": "registry:ui",
+      "title": "Password Input",
+      "description": "A password input with show/hide toggle functionality.",
+      "dependencies": [
+        "@base-ui/react",
+        "@phosphor-icons/react",
+        "class-variance-authority"
+      ],
+      "registryDependencies": ["utils"],
+      "files": [
+        {
+          "path": "src/components/ui/password-input.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "progress",
+      "type": "registry:ui",
+      "title": "Progress",
+      "description": "A neumorphic progress bar component.",
+      "dependencies": ["@base-ui/react", "class-variance-authority"],
+      "registryDependencies": ["utils"],
+      "files": [
+        { "path": "src/components/ui/progress.tsx", "type": "registry:ui" }
+      ]
+    },
+    {
+      "name": "radio",
+      "type": "registry:ui",
+      "title": "Radio",
+      "description": "A neumorphic radio button component with group support.",
+      "dependencies": ["@base-ui/react", "class-variance-authority"],
+      "registryDependencies": ["utils"],
+      "files": [
+        { "path": "src/components/ui/radio.tsx", "type": "registry:ui" }
+      ]
+    },
+    {
+      "name": "select",
+      "type": "registry:ui",
+      "title": "Select",
+      "description": "A neumorphic select/dropdown component.",
+      "dependencies": [
+        "@base-ui/react",
+        "@phosphor-icons/react",
+        "class-variance-authority"
+      ],
+      "registryDependencies": ["utils"],
+      "files": [
+        { "path": "src/components/ui/select.tsx", "type": "registry:ui" }
+      ]
+    },
+    {
+      "name": "slider",
+      "type": "registry:ui",
+      "title": "Slider",
+      "description": "A neumorphic slider component with draggable thumb.",
+      "dependencies": ["@base-ui/react", "class-variance-authority"],
+      "registryDependencies": ["utils"],
+      "files": [
+        { "path": "src/components/ui/slider.tsx", "type": "registry:ui" }
+      ]
+    },
+    {
+      "name": "switch",
+      "type": "registry:ui",
+      "title": "Switch",
+      "description": "A neumorphic toggle switch component.",
+      "dependencies": ["@base-ui/react", "class-variance-authority"],
+      "registryDependencies": ["utils"],
+      "files": [
+        { "path": "src/components/ui/switch.tsx", "type": "registry:ui" }
+      ]
+    },
+    {
+      "name": "tabs",
+      "type": "registry:ui",
+      "title": "Tabs",
+      "description": "A neumorphic tabs component with animated indicator.",
+      "dependencies": ["@base-ui/react", "class-variance-authority"],
+      "registryDependencies": ["utils"],
+      "files": [{ "path": "src/components/ui/tabs.tsx", "type": "registry:ui" }]
+    },
+    {
+      "name": "textarea",
+      "type": "registry:ui",
+      "title": "Textarea",
+      "description": "A neumorphic textarea component.",
+      "dependencies": ["class-variance-authority"],
+      "registryDependencies": ["utils"],
+      "files": [
+        { "path": "src/components/ui/textarea.tsx", "type": "registry:ui" }
+      ]
+    },
+    {
+      "name": "theme-toggle",
+      "type": "registry:ui",
+      "title": "Theme Toggle",
+      "description": "A neumorphic theme toggle for light/dark/system modes.",
+      "dependencies": [
+        "@phosphor-icons/react",
+        "next-themes",
+        "class-variance-authority"
+      ],
+      "registryDependencies": ["utils"],
+      "files": [
+        { "path": "src/components/ui/theme-toggle.tsx", "type": "registry:ui" }
+      ]
+    },
+    {
+      "name": "toast",
+      "type": "registry:ui",
+      "title": "Toast",
+      "description": "A neumorphic toast notification system.",
+      "dependencies": [
+        "@base-ui/react",
+        "@phosphor-icons/react",
+        "class-variance-authority"
+      ],
+      "registryDependencies": ["utils"],
+      "files": [
+        { "path": "src/components/ui/toast.tsx", "type": "registry:ui" }
+      ]
+    },
+    {
+      "name": "toggle",
+      "type": "registry:ui",
+      "title": "Toggle",
+      "description": "A neumorphic toggle button component.",
+      "dependencies": ["@base-ui/react", "class-variance-authority"],
+      "registryDependencies": ["utils"],
+      "files": [
+        { "path": "src/components/ui/toggle.tsx", "type": "registry:ui" }
+      ]
+    },
+    {
+      "name": "toggle-group",
+      "type": "registry:ui",
+      "title": "Toggle Group",
+      "description": "A neumorphic toggle group with animated selection indicator.",
+      "dependencies": ["@base-ui/react", "class-variance-authority"],
+      "registryDependencies": ["utils"],
+      "files": [
+        { "path": "src/components/ui/toggle-group.tsx", "type": "registry:ui" }
+      ]
+    },
+    {
+      "name": "tooltip",
+      "type": "registry:ui",
+      "title": "Tooltip",
+      "description": "A neumorphic tooltip component.",
+      "dependencies": ["@base-ui/react"],
+      "registryDependencies": ["utils"],
+      "files": [
+        { "path": "src/components/ui/tooltip.tsx", "type": "registry:ui" }
+      ]
+    },
+    {
+      "name": "accordion",
+      "type": "registry:ui",
+      "title": "Accordion",
+      "description": "A neumorphic accordion component with expandable sections.",
+      "dependencies": ["@base-ui/react", "@phosphor-icons/react"],
+      "registryDependencies": ["utils"],
+      "files": [
+        { "path": "src/components/ui/accordion.tsx", "type": "registry:ui" }
+      ]
+    },
+    {
+      "name": "alert-dialog",
+      "type": "registry:ui",
+      "title": "Alert Dialog",
+      "description": "A neumorphic alert dialog for confirmations and important actions.",
+      "dependencies": ["@base-ui/react"],
+      "registryDependencies": ["utils", "button"],
+      "files": [
+        { "path": "src/components/ui/alert-dialog.tsx", "type": "registry:ui" }
+      ]
+    },
+    {
+      "name": "avatar",
+      "type": "registry:ui",
+      "title": "Avatar",
+      "description": "A neumorphic avatar component with image and fallback support.",
+      "dependencies": ["@base-ui/react", "class-variance-authority"],
+      "registryDependencies": ["utils"],
+      "files": [
+        { "path": "src/components/ui/avatar.tsx", "type": "registry:ui" }
+      ]
+    },
+    {
+      "name": "collapsible",
+      "type": "registry:ui",
+      "title": "Collapsible",
+      "description": "A neumorphic collapsible component for toggling content visibility.",
+      "dependencies": ["@base-ui/react"],
+      "registryDependencies": ["utils"],
+      "files": [
+        { "path": "src/components/ui/collapsible.tsx", "type": "registry:ui" }
+      ]
+    },
+    {
+      "name": "field",
+      "type": "registry:ui",
+      "title": "Field",
+      "description": "A form field wrapper with label, description, and error states.",
+      "dependencies": ["@base-ui/react"],
+      "registryDependencies": ["utils"],
+      "files": [
+        { "path": "src/components/ui/field.tsx", "type": "registry:ui" }
+      ]
+    },
+    {
+      "name": "menu",
+      "type": "registry:ui",
+      "title": "Menu",
+      "description": "A neumorphic dropdown menu component with various item types.",
+      "dependencies": ["@base-ui/react", "@phosphor-icons/react"],
+      "registryDependencies": ["utils"],
+      "files": [{ "path": "src/components/ui/menu.tsx", "type": "registry:ui" }]
+    },
+    {
+      "name": "number-field",
+      "type": "registry:ui",
+      "title": "Number Field",
+      "description": "A neumorphic number input with increment and decrement buttons.",
+      "dependencies": ["@base-ui/react", "@phosphor-icons/react"],
+      "registryDependencies": ["utils"],
+      "files": [
+        { "path": "src/components/ui/number-field.tsx", "type": "registry:ui" }
+      ]
+    },
+    {
+      "name": "popover",
+      "type": "registry:ui",
+      "title": "Popover",
+      "description": "A neumorphic popover component for floating content.",
+      "dependencies": ["@base-ui/react", "@phosphor-icons/react"],
+      "registryDependencies": ["utils"],
+      "files": [
+        { "path": "src/components/ui/popover.tsx", "type": "registry:ui" }
+      ]
+    },
+    {
+      "name": "scroll-area",
+      "type": "registry:ui",
+      "title": "Scroll Area",
+      "description": "A neumorphic scroll area with custom styled scrollbars.",
+      "dependencies": ["@base-ui/react"],
+      "registryDependencies": ["utils"],
+      "files": [
+        { "path": "src/components/ui/scroll-area.tsx", "type": "registry:ui" }
+      ]
+    },
+    {
+      "name": "separator",
+      "type": "registry:ui",
+      "title": "Separator",
+      "description": "A neumorphic separator/divider component.",
+      "dependencies": ["@base-ui/react"],
+      "registryDependencies": ["utils"],
+      "files": [
+        { "path": "src/components/ui/separator.tsx", "type": "registry:ui" }
+      ]
+    }
+  ]
+}

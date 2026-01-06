@@ -1,0 +1,135 @@
+import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
+import { ComponentPreview, InstallCommand } from "@/components/docs/code-block";
+
+# Avatar
+
+An image element with a fallback for representing the user.
+
+## Installation
+
+<InstallCommand name="avatar" />
+
+```tsx
+import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
+```
+
+## Usage
+
+<ComponentPreview>
+  <Avatar>
+    <AvatarImage src="https://github.com/renzynx.png" alt="@renzynx" />
+    <AvatarFallback>CN</AvatarFallback>
+  </Avatar>
+</ComponentPreview>
+
+```tsx
+import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
+
+export default function AvatarDemo() {
+  return (
+    <Avatar>
+      <AvatarImage src="https://github.com/renzynx.png" alt="@shadcn" />
+      <AvatarFallback>CN</AvatarFallback>
+    </Avatar>
+  );
+}
+```
+
+## Sizes
+
+Use the size prop to change the dimensions of the avatar.
+
+<ComponentPreview>
+  <div className="flex items-center gap-4">
+    <Avatar size="sm">
+      <AvatarImage src="https://github.com/renzynx.png" />
+      <AvatarFallback>CN</AvatarFallback>
+    </Avatar>
+    <Avatar size="md">
+      <AvatarImage src="https://github.com/renzynx.png" />
+      <AvatarFallback>CN</AvatarFallback>
+    </Avatar>
+    <Avatar size="lg">
+      <AvatarImage src="https://github.com/renzynx.png" />
+      <AvatarFallback>CN</AvatarFallback>
+    </Avatar>
+    <Avatar size="xl">
+      <AvatarImage src="https://github.com/renzynx.png" />
+      <AvatarFallback>CN</AvatarFallback>
+    </Avatar>
+  </div>
+</ComponentPreview>
+
+```tsx
+import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
+
+export default function AvatarSizes() {
+  return (
+    <div className="flex items-center gap-4">
+      <Avatar size="sm">
+        <AvatarImage src="https://github.com/renzynx.png" />
+        <AvatarFallback>CN</AvatarFallback>
+      </Avatar>
+      <Avatar size="md">
+        <AvatarImage src="https://github.com/renzynx.png" />
+        <AvatarFallback>CN</AvatarFallback>
+      </Avatar>
+      <Avatar size="lg">
+        <AvatarImage src="https://github.com/renzynx.png" />
+        <AvatarFallback>CN</AvatarFallback>
+      </Avatar>
+      <Avatar size="xl">
+        <AvatarImage src="https://github.com/renzynx.png" />
+        <AvatarFallback>CN</AvatarFallback>
+      </Avatar>
+    </div>
+  );
+}
+```
+
+## With Fallback
+
+The AvatarFallback is shown when the image fails to load or is not provided.
+
+<ComponentPreview>
+  <Avatar>
+    <AvatarImage src="/invalid-image.png" alt="@user" />
+    <AvatarFallback>JD</AvatarFallback>
+  </Avatar>
+</ComponentPreview>
+
+```tsx
+import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
+
+export default function AvatarWithFallback() {
+  return (
+    <Avatar>
+      <AvatarImage src="/invalid-image.png" alt="@user" />
+      <AvatarFallback>JD</AvatarFallback>
+    </Avatar>
+  );
+}
+```
+
+## Props
+
+### Avatar
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| size | `"sm" \| "md" \| "lg" \| "xl"` | `"md"` | The size of the avatar. |
+| className | `string` | - | Additional CSS classes to apply to the avatar. |
+
+### AvatarImage
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| src | `string` | - | The source URL of the image. |
+| alt | `string` | - | The alternative text for the image. |
+| className | `string` | - | Additional CSS classes to apply to the image. |
+
+### AvatarFallback
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| className | `string` | - | Additional CSS classes to apply to the fallback. |
