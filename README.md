@@ -3,7 +3,7 @@
 A soft, tactile component library for React.
 
 [![npm version](https://img.shields.io/npm/v/@renzynx/neumorphic-ui?color=blue)](https://www.npmjs.com/package/@renzynx/neumorphic-ui)
-[![license](https://img.shields.io/npm/l/@renzynx/neumorphic-ui)](https://github.com/renzynx/neumorphic-ui/blob/main/LICENSE)
+[![license](https://img.shields.io/github/license/renzynx/neumorphic-ui)](https://github.com/renzynx/neumorphic-ui/blob/main/LICENSE)
 [![Next.js](https://img.shields.io/badge/Next.js-16.1.1-black)](https://nextjs.org/)
 [![React](https://img.shields.io/badge/React-19-blue)](https://react.dev/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-v4-38bdf8)](https://tailwindcss.com/)

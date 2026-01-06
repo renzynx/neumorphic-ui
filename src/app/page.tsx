@@ -49,7 +49,7 @@ export default function LandingPage() {
                 Documentation
               </Link>
               <Link
-                href="https://github.com"
+                href="https://github.com/renzynx/neumorphic-ui"
                 className="hidden md:block text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
               >
                 GitHub
@@ -97,7 +97,7 @@ export default function LandingPage() {
                       </Button>
                     </Link>
                     <Link
-                      href="https://github.com"
+                      href="https://github.com/renzynx/neumorphic-ui"
                       className="w-full sm:w-auto"
                     >
                       <Button
@@ -270,8 +270,8 @@ export default function LandingPage() {
 
                   <div className="pt-4">
                     <div className="p-4 rounded-xl bg-black/5 dark:bg-white/5 font-mono text-sm overflow-x-auto">
-                      <span className="text-primary">npm</span> install
-                      saas-neumorphic-ui
+                      <span className="text-primary">npx</span> shadcn@latest
+                      add https://neumorphic-ui.vercel.app/r/button.json
                     </div>
                   </div>
                 </div>
@@ -312,7 +312,10 @@ export default function LandingPage() {
                 <Link href="#" className="hover:text-primary">
                   Themes
                 </Link>
-                <Link href="https://github.com" className="hover:text-primary">
+                <Link
+                  href="https://github.com/renzynx/neumorphic-ui"
+                  className="hover:text-primary"
+                >
                   GitHub
                 </Link>
               </div>
