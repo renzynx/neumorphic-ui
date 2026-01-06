@@ -13,8 +13,6 @@ const colors = {
   primary: "#8b7acc",
   secondary: "#2a2438",
   mutedForeground: "#a89bc0",
-  surfaceShadow: "#0d0a14",
-  surfaceHighlight: "#2a2438",
 };
 
 export default async function Image() {
@@ -41,7 +39,6 @@ export default async function Image() {
           padding: "40px 60px",
           borderRadius: "32px",
           background: colors.background,
-          boxShadow: `20px 20px 60px ${colors.surfaceShadow}, -20px -20px 60px ${colors.surfaceHighlight}, inset 1px 1px 0px rgba(255,255,255,0.05)`,
         }}
       >
         <div
@@ -52,8 +49,7 @@ export default async function Image() {
             width: "80px",
             height: "80px",
             borderRadius: "20px",
-            background: colors.background,
-            boxShadow: `8px 8px 24px ${colors.surfaceShadow}, -8px -8px 24px ${colors.surfaceHighlight}, inset 1px 1px 0px rgba(255,255,255,0.05)`,
+            background: colors.secondary,
             marginBottom: "30px",
           }}
         >

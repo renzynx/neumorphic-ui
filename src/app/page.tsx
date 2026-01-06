@@ -321,7 +321,7 @@ export default function LandingPage() {
               </div>
 
               <p className="text-xs text-muted-foreground">
-                © 2026 Design Systems Inc.
+                © {new Date().getFullYear()} renzynx.
               </p>
             </div>
           </footer>
